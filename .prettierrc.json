@@ -1,0 +1,13 @@
+{
+  "overrides": [
+    {
+      "files": "*.svelte",
+      "options": {
+        "parser": "html"
+      },
+      "plugins": [
+        "prettier-plugin-svelte"
+      ]
+    }
+  ]
+}
