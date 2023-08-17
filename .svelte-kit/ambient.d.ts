@@ -35,7 +35,6 @@ declare module '$env/static/private' {
 	export const XDG_MENU_PREFIX: string;
 	export const CONDA_EXE: string;
 	export const _CE_M: string;
-	export const _JPACKAGE_LAUNCHER: string;
 	export const HOSTNAME: string;
 	export const HISTSIZE: string;
 	export const npm_config_resolution_mode: string;
@@ -55,7 +54,6 @@ declare module '$env/static/private' {
 	export const CONDA_PREFIX: string;
 	export const npm_config_init_module: string;
 	export const SYSTEMD_EXEC_PID: string;
-	export const _: string;
 	export const XAUTHORITY: string;
 	export const SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS: string;
 	export const GJS_DEBUG_TOPICS: string;
@@ -63,7 +61,6 @@ declare module '$env/static/private' {
 	export const HOME: string;
 	export const USERNAME: string;
 	export const LANG: string;
-	export const LS_COLORS: string;
 	export const XDG_CURRENT_DESKTOP: string;
 	export const npm_package_version: string;
 	export const WAYLAND_DISPLAY: string;
@@ -92,7 +89,6 @@ declare module '$env/static/private' {
 	export const npm_config_user_agent: string;
 	export const npm_execpath: string;
 	export const CONDA_PYTHON_EXE: string;
-	export const LD_LIBRARY_PATH: string;
 	export const XDG_RUNTIME_DIR: string;
 	export const CONDA_DEFAULT_ENV: string;
 	export const DEBUGINFOD_URLS: string;
@@ -100,7 +96,6 @@ declare module '$env/static/private' {
 	export const KDEDIRS: string;
 	export const JOURNAL_STREAM: string;
 	export const XDG_DATA_DIRS: string;
-	export const GDK_BACKEND: string;
 	export const npm_config_noproxy: string;
 	export const PATH: string;
 	export const npm_config_metrics_registry: string;
@@ -116,6 +111,7 @@ declare module '$env/static/private' {
 	export const npm_config_engine_strict: string;
 	export const GIO_LAUNCHED_DESKTOP_FILE: string;
 	export const OLDPWD: string;
+	export const _: string;
 	export const NODE_ENV: string;
 }
 
@@ -155,7 +151,6 @@ declare module '$env/dynamic/private' {
 		XDG_MENU_PREFIX: string;
 		CONDA_EXE: string;
 		_CE_M: string;
-		_JPACKAGE_LAUNCHER: string;
 		HOSTNAME: string;
 		HISTSIZE: string;
 		npm_config_resolution_mode: string;
@@ -175,7 +170,6 @@ declare module '$env/dynamic/private' {
 		CONDA_PREFIX: string;
 		npm_config_init_module: string;
 		SYSTEMD_EXEC_PID: string;
-		_: string;
 		XAUTHORITY: string;
 		SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS: string;
 		GJS_DEBUG_TOPICS: string;
@@ -183,7 +177,6 @@ declare module '$env/dynamic/private' {
 		HOME: string;
 		USERNAME: string;
 		LANG: string;
-		LS_COLORS: string;
 		XDG_CURRENT_DESKTOP: string;
 		npm_package_version: string;
 		WAYLAND_DISPLAY: string;
@@ -212,7 +205,6 @@ declare module '$env/dynamic/private' {
 		npm_config_user_agent: string;
 		npm_execpath: string;
 		CONDA_PYTHON_EXE: string;
-		LD_LIBRARY_PATH: string;
 		XDG_RUNTIME_DIR: string;
 		CONDA_DEFAULT_ENV: string;
 		DEBUGINFOD_URLS: string;
@@ -220,7 +212,6 @@ declare module '$env/dynamic/private' {
 		KDEDIRS: string;
 		JOURNAL_STREAM: string;
 		XDG_DATA_DIRS: string;
-		GDK_BACKEND: string;
 		npm_config_noproxy: string;
 		PATH: string;
 		npm_config_metrics_registry: string;
@@ -236,6 +227,7 @@ declare module '$env/dynamic/private' {
 		npm_config_engine_strict: string;
 		GIO_LAUNCHED_DESKTOP_FILE: string;
 		OLDPWD: string;
+		_: string;
 		NODE_ENV: string;
 		[key: `PUBLIC_${string}`]: undefined;
 		[key: `${string}`]: string | undefined;
