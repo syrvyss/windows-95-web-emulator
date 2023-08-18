@@ -2,11 +2,9 @@
   "overrides": [
     {
       "files": "*.svelte",
-      "options": {
-        "parser": "html"
-      },
       "plugins": [
-        "prettier-plugin-svelte"
+        "prettier-plugin-svelte",
+        "prettier-plugin-tailwindcss"
       ]
     }
   ]
