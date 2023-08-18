@@ -1,10 +1,14 @@
 <script lang="ts">
+  import { open_window } from "$lib/components/DesktopWindow.svelte";
+
   export let name: string, icon: string;
+
 </script>
 
 <a
   href="#"
   class="flex flex-col group w-14 items-center cursor-pointer"
+  on:dblclick={() => open_window(name, icon)}
 >
   <img
     class="w-10 select-none group-active:bg-blue-799 bg-clip-border"
