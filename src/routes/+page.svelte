@@ -1,4 +1,7 @@
-<script lang="ts"></script>
+<script lang="ts">
+  import DesktopIcon from "$lib/components/DesktopIcon.svelte";
+  import { programs } from "$lib/classes/programs";
+</script>
 
 <body class="bg-teal-700 font-sans">
   <section class="p-2 flex flex-col gap-5">
