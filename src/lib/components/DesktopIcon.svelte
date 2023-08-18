@@ -2,11 +2,19 @@
   export let name: string, icon: string;
 </script>
 
-<div class="flex flex-col w-20 items-center active:bg-blue-700 cursor-pointer">
-  <img class="w-11" src="{icon}" alt="" />
+<a
+  href="#"
+  class="flex flex-col group w-14 items-center cursor-pointer"
+>
+  <img
+    class="w-10 select-none group-active:bg-blue-799 bg-clip-border"
+    src="{icon}"
+    alt=""
+    draggable="false"
+  />
   <p
-    class="w-full mt-1 text-xs bg-teal-700 text-center text-white block select-none"
+    class="mt-1 w-full border group-focus:border-gray-100 group-active:bg-blue-800 border-teal-700 border-dotted bg-clip-content text-xs text-center text-white select-none"
   >
     {name}
   </p>
-</div>
+</a>
