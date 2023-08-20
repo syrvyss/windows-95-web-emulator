@@ -1,20 +1,11 @@
-<script context="module" lang="ts">
-  let name = "";
-  let icon = "";
-
-  export const open_window = (name: string, icon: string) => {
-    name = name;
-    icon = icon;
-  };
-
-  export const close_window = (name: string) => {
-
-  };
-
-
-</script>
-
 <script lang="ts">
+  import { createEventDispatcher } from "svelte";
+
+  const dispatch = createEventDispatcher();
+
+  export let name: string;
+  export let icon: string;
+
   const dragMe = (node: any) => {
     let moving = false;
     let left = 300;
@@ -42,10 +33,7 @@
     window.addEventListener("mouseup", () => {
       moving = false;
     });
-
   };
-
-  //$: console.log(moving)
 </script>
 
 <section
@@ -57,30 +45,55 @@
     class="flex p-0.5 justify-between bg-gradient-to-r from-blue-950 to-blue-600 w-full h-5 drag-none select-none"
     role="button"
   >
-    <div>
-      <img src={icon} alt="">
-      <p class="font-bold text-xs text-white">Test Article{name}</p>
+    <div class="flex gap-1">
+      <img src={icon} alt="" class="w-3/5" />
+      <p class="font-black text-xs text-white">{name}</p>
     </div>
     <div class="flex">
       <div class="flex mr-0.5">
-        <button>
-          <img src="src/assets/window_icons/minimize.png"
-               class="bg-menu border-2 border-b-menu-shadow border-r-menu-shadow border-menu-highlight w-4 select-none"
-               alt="">
+        <button
+          on:click={() => {
+            dispatch("minimize", {
+              name: name,
+              icon: icon,
+            });
+          }}
+        >
+          <img
+            src="src/assets/window_icons/minimize.png"
+            class="bg-menu border-2 border-b-menu-shadow border-r-menu-shadow border-menu-highlight w-4 select-none"
+            alt=""
+          />
         </button>
-        <button>
-          <img src="src/assets/window_icons/maximize.png"
-               class="bg-menu border-2 border-b-menu-shadow border-r-menu-shadow border-menu-highlight w-4 select-none"
-               alt="">
+        <button
+          on:click={() => {
+            dispatch("maximize", {
+              name: name,
+              icon: icon,
+            });
+          }}
+        >
+          <img
+            src="src/assets/window_icons/maximize.png"
+            class="bg-menu border-2 border-b-menu-shadow border-r-menu-shadow border-menu-highlight w-4 select-none"
+            alt=""
+          />
         </button>
       </div>
-      <button>
-        <img src="src/assets/window_icons/close.png"
-             class="bg-menu border-2 border-b-menu-shadow border-r-menu-shadow border-menu-highlight w-4 select-none"
-             alt="">
+      <button
+        on:click={() => {
+          dispatch("close", {
+            name: name,
+            icon: icon,
+          });
+        }}
+      >
+        <img
+          src="src/assets/window_icons/close.png"
+          class="bg-menu border-2 border-b-menu-shadow border-r-menu-shadow border-menu-highlight w-4 select-none"
+          alt=""
+        />
       </button>
     </div>
-
-
   </a>
 </section>
