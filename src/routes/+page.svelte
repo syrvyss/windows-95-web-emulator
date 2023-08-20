@@ -11,10 +11,13 @@
     openedWindows = openedWindows;
   };
 
-  const handleMinimize = (event: CustomEvent) => {};
-  const handleMaximize = (event: CustomEvent) => {};
   const handleClose = (event: CustomEvent) => {
-    console.log("close!");
+    let index = openedWindows.indexOf({
+      name: event.detail.name,
+      icon: event.detail.icon,
+    });
+    openedWindows.splice(index, 1);
+    openedWindows = openedWindows;
   };
 </script>
 
@@ -26,13 +29,7 @@
   </section>
 
   {#each openedWindows as item}
-    <DesktopWindow
-      on:minimize={handleMinimize}
-      on:maximize={handleMaximize}
-      on:close={handleClose}
-      name={item.name}
-      icon={item.icon}
-    />
+    <DesktopWindow on:close={handleClose} name={item.name} icon={item.icon} />
   {/each}
 
   <footer
