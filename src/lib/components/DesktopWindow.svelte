@@ -46,7 +46,7 @@
     role="button"
   >
     <div class="flex gap-1">
-      <img src={icon} alt="" class="w-3/5" />
+      <img src={icon} alt="" class="w-4/5" />
       <p class="font-black text-xs text-white">{name}</p>
     </div>
     <div class="flex">
@@ -61,7 +61,7 @@
         >
           <img
             src="src/assets/window_icons/minimize.png"
-            class="bg-menu border-2 border-b-menu-shadow border-r-menu-shadow border-menu-highlight w-4 select-none"
+            class="bg-menu btn w-4"
             alt=""
           />
         </button>
@@ -75,7 +75,7 @@
         >
           <img
             src="src/assets/window_icons/maximize.png"
-            class="bg-menu border-2 border-b-menu-shadow border-r-menu-shadow border-menu-highlight w-4 select-none"
+            class="bg-menu btn w-4"
             alt=""
           />
         </button>
@@ -90,7 +90,7 @@
       >
         <img
           src="src/assets/window_icons/close.png"
-          class="bg-menu border-2 border-b-menu-shadow border-r-menu-shadow border-menu-highlight w-4 select-none"
+          class="bg-menu btn w-4"
           alt=""
         />
       </button>
