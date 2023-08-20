@@ -1,18 +1,25 @@
 <script lang="ts">
-  import { open_window } from "$lib/components/DesktopWindow.svelte";
+  import { createEventDispatcher } from "svelte";
 
-  export let name: string, icon: string;
+  const dispatch = createEventDispatcher();
 
+  export let name: string;
+  export let icon: string;
 </script>
 
 <a
   href="#"
   class="flex flex-col group w-14 items-center cursor-pointer"
-  on:dblclick={() => open_window(name, icon)}
+  on:dblclick={() => {
+    dispatch("open", {
+      name: name,
+      icon: icon,
+    });
+  }}
 >
   <img
     class="w-10 select-none group-active:bg-blue-799 bg-clip-border"
-    src="{icon}"
+    src={icon}
     alt=""
     draggable="false"
   />
