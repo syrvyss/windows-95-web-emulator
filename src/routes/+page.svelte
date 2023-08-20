@@ -29,13 +29,7 @@
   </section>
 
   {#each openedWindows as item}
-    <DesktopWindow
-      on:minimize={handleMinimize}
-      on:maximize={handleMaximize}
-      on:close={handleClose}
-      name={item.name}
-      icon={item.icon}
-    />
+    <DesktopWindow on:close={handleClose} name={item.name} icon={item.icon} />
   {/each}
 
   <footer
