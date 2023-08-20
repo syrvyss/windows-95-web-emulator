@@ -3,12 +3,19 @@
   import DesktopWindow from "$lib/components/DesktopWindow.svelte";
 
   import { programs } from "$lib/classes/programs";
+
+  let openedWindows = new Array<{ name: string; icon: string }>();
+
+  const handleOpen = (event: CustomEvent) => {
+    openedWindows.push({ name: event.detail.name, icon: event.detail.icon });
+    openedWindows = openedWindows;
+  };
 </script>
 
 <body class="bg-teal-700 font-sans">
 <section class="p-2 flex flex-col gap-5">
-  {#each programs as item}
-    <DesktopIcon {...item}></DesktopIcon>
+    {#each programs as programInfo}
+      <DesktopIcon on:open={handleOpen} {...programInfo} />
   {/each}
 </section>
 
