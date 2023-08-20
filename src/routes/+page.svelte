@@ -11,10 +11,13 @@
     openedWindows = openedWindows;
   };
 
-  const handleMinimize = (event: CustomEvent) => {};
-  const handleMaximize = (event: CustomEvent) => {};
   const handleClose = (event: CustomEvent) => {
-    console.log("close!");
+    let index = openedWindows.indexOf({
+      name: event.detail.name,
+      icon: event.detail.icon,
+    });
+    openedWindows.splice(index, 1);
+    openedWindows = openedWindows;
   };
 </script>
 
