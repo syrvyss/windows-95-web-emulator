@@ -7,6 +7,7 @@
 
   let openedWindows = new Array<{ name: string; icon: string; id: string }>();
 
+  let focused: string;
   let minimized: boolean;
 
   const handleOpen = (event: CustomEvent) => {
@@ -24,6 +25,10 @@
     });
   };
 
+  const handleFocus = (event: CustomEvent) => {
+    focused = event.detail.id;
+  };
+
   const openMinimized = (event: CustomEvent) => {};
 </script>
 
@@ -35,7 +40,12 @@
   </section>
 
   {#each openedWindows as item}
-    <DesktopWindow on:close={handleClose} desktopWindow={item} />
+    <DesktopWindow
+      on:close={handleClose}
+      on:focus={handleFocus}
+      focused={focused === item.id}
+      desktopWindow={item}
+    />
   {/each}
 
   <footer

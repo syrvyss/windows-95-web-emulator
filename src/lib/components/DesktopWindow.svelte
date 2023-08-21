@@ -5,10 +5,19 @@
 
   export let desktopWindow: { name: string; icon: string; id: string };
 
+  export let focused: boolean;
   export let minimize = false;
   let maximize = false;
 
   let windowPos = { x: 0, y: 0 };
+
+  $: focusStyling = () => {
+    if (focused) {
+      return "z-index: 99;";
+    } else {
+      return "";
+    }
+  };
 
   $: minimizeStyling = () => {
     if (minimize) {
@@ -50,9 +59,15 @@
   };
 </script>
 
-<section
-  style="{minimizeStyling()}{maximizeStyling()}"
-  class="bg-menu resize select-none border-2 border-b-menu-shadow border-r-menu-shadow border-menu-highlight w-96 h-52 p-0.5 absolute"
+<a
+  style="{minimizeStyling()}{maximizeStyling()}{focusStyling()}"
+  class="drag-none cursor-default bg-menu resize select-none border-2 border-b-menu-shadow border-r-menu-shadow border-menu-highlight w-96 h-52 p-0.5 absolute"
+  href=""
+  on:mousedown={() => {
+    dispatch("focus", {
+      id: desktopWindow.id,
+    });
+  }}
 >
   <a
     href="/"
@@ -107,4 +122,4 @@
       </button>
     </div>
   </a>
-</section>
+</a>
