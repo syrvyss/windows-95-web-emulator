@@ -8,6 +8,8 @@
   let minimize = false;
   let maximize = false;
 
+  let windowPos = { x: 0, y: 0 };
+
   $: minimizeStyling = () => {
     if (minimize) {
       return "display: none;";
@@ -20,6 +22,7 @@
     if (maximize) {
       return `top: 0; left: 0; height: 100%; width: 100%;`;
     } else {
+      return `top: ${windowPos.y}px; left: ${windowPos.x}px;`;
       return "";
     }
   };
@@ -29,21 +32,17 @@
     let left = 0;
     let top = 0;
 
-    node.style.position = "absolute";
-    node.style.top = `${top}px`;
-    node.style.left = `${left}px`;
+    node.style.position = "relative";
     node.style.userSelect = "none";
 
     node.addEventListener("mousedown", () => {
       moving = true;
     });
 
-    window.addEventListener("mousemove", (e) => {
+    window.addEventListener("mousemove", (e: any) => {
       if (moving) {
-        left += e.movementX;
-        top += e.movementY;
-        node.style.top = `${top}px`;
-        node.style.left = `${left}px`;
+        windowPos.x += e.movementX;
+        windowPos.y += e.movementY;
       }
     });
 
@@ -62,6 +61,10 @@
     href="/"
     class="flex p-0.5 justify-between bg-gradient-to-r from-blue-950 to-blue-600 w-full h-5 cursor-default drag-none select-none"
     role="button"
+    use:dragMe
+    on:dblclick={() => {
+      maximize = !maximize;
+    }}
   >
     <div class="flex gap-1">
       <img src={icon} alt="" class="w-4/5 drag-none" />
