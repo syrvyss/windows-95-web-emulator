@@ -1,24 +1,30 @@
 <script lang="ts">
   import DesktopIcon from "$lib/components/DesktopIcon.svelte";
   import DesktopWindow from "$lib/components/DesktopWindow.svelte";
+  import PanelApp from "$lib/components/PanelApp.svelte";
 
   import { programs } from "$lib/classes/programs";
 
-  let openedWindows = new Array<{ name: string; icon: string }>();
+  let openedWindows = new Array<{ name: string; icon: string; id: string }>();
+
+  let minimized: boolean;
 
   const handleOpen = (event: CustomEvent) => {
-    openedWindows.push({ name: event.detail.name, icon: event.detail.icon });
+    openedWindows.push({
+      name: event.detail.name,
+      icon: event.detail.icon,
+      id: crypto.randomUUID(),
+    });
     openedWindows = openedWindows;
   };
 
   const handleClose = (event: CustomEvent) => {
-    let index = openedWindows.indexOf({
-      name: event.detail.name,
-      icon: event.detail.icon,
+    openedWindows = openedWindows.filter((e) => {
+      return e.id !== event.detail.id;
     });
-    openedWindows.splice(index, 1);
-    openedWindows = openedWindows;
   };
+
+  const openMinimized = (event: CustomEvent) => {};
 </script>
 
 <body class="bg-teal-700 font-sans">
@@ -29,7 +35,7 @@
   </section>
 
   {#each openedWindows as item}
-    <DesktopWindow on:close={handleClose} name={item.name} icon={item.icon} />
+    <DesktopWindow on:close={handleClose} desktopWindow={item} />
   {/each}
 
   <footer
@@ -43,5 +49,13 @@
     <div
       class="border-l-2 border-r-2 border-l-menu-shadow border-r-menu-highlight"
     />
+
+    {#each openedWindows as item}
+      <PanelApp
+        bind={minimized}
+        on:openMinimize={openMinimized}
+        desktopWindow={item}
+      />
+    {/each}
   </footer>
 </body>

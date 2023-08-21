@@ -6,7 +6,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        "menu": "#9ca3af",
+        menu: "#9ca3af",
         "menu-highlight": "#e5e7eb",
         "menu-shadow": "#4b5563",
         "menu-active": "#d1d5db",
@@ -40,14 +40,14 @@ export default {
             "border-left-color": "#4b5563",
             "border-bottom-color": "#e5e6eb",
             "border-right-color": "#e5e6eb",
-          }
+          },
         },
-        "panel": {
+        ".panel": {
           "border-color": "#e5e7eb",
           "border-bottom-color": "#4b5563",
           "border-right-color": "#4b5563",
           "background-color": "#9ca3af",
-        }
+        },
       });
     }),
   ],
