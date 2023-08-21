@@ -29,8 +29,6 @@
 
   const dragMe = (node: any) => {
     let moving = false;
-    let left = 0;
-    let top = 0;
 
     node.style.position = "relative";
     node.style.userSelect = "none";
@@ -55,7 +53,6 @@
 <section
   style="{minimizeStyling()}{maximizeStyling()}"
   class="bg-menu resize select-none border-2 border-b-menu-shadow border-r-menu-shadow border-menu-highlight w-96 h-52 p-0.5 absolute"
-  use:dragMe
 >
   <a
     href="/"

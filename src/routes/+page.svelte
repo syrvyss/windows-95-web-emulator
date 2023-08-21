@@ -19,8 +19,6 @@
         openedWindows = openedWindows.filter((e) => {
             return e.id !== event.detail.id;
     });
-    openedWindows.splice(index, 1);
-    openedWindows = openedWindows;
   };
 </script>
 
