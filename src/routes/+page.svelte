@@ -8,7 +8,6 @@
   let openedWindows = new Array<{ name: string; icon: string; id: string }>();
 
   let focused: string;
-  let minimized: boolean;
 
   const handleOpen = (event: CustomEvent) => {
     openedWindows.push({
@@ -61,11 +60,7 @@
     />
 
     {#each openedWindows as item}
-      <PanelApp
-        bind={minimized}
-        on:openMinimize={openMinimized}
-        desktopWindow={item}
-      />
+      <PanelApp on:openMinimize={openMinimized} desktopWindow={item} />
     {/each}
   </footer>
 </body>
