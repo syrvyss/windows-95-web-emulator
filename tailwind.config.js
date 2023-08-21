@@ -42,7 +42,7 @@ export default {
             "border-right-color": "#e5e6eb",
           }
         },
-        "panel": {
+        ".panel": {
           "border-color": "#e5e7eb",
           "border-bottom-color": "#4b5563",
           "border-right-color": "#4b5563",
