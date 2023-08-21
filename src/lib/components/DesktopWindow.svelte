@@ -3,8 +3,7 @@
 
   const dispatch = createEventDispatcher();
 
-  export let name: string;
-  export let icon: string;
+  export let desktopWindow: { name: string; icon: string; id: string };
 
   let minimize = false;
   let maximize = false;
@@ -96,8 +95,7 @@
       <button
         on:click={() => {
           dispatch("close", {
-            name: name,
-            icon: icon,
+            id: desktopWindow.id,
           });
         }}
       >

@@ -4,17 +4,20 @@
 
   import { programs } from "$lib/classes/programs";
 
-  let openedWindows = new Array<{ name: string; icon: string }>();
+    let openedWindows = new Array<{ name: string; icon: string; id: string }>();
 
   const handleOpen = (event: CustomEvent) => {
-    openedWindows.push({ name: event.detail.name, icon: event.detail.icon });
+        openedWindows.push({
+            name: event.detail.name,
+            icon: event.detail.icon,
+            id: crypto.randomUUID(),
+        });
     openedWindows = openedWindows;
   };
 
   const handleClose = (event: CustomEvent) => {
-    let index = openedWindows.indexOf({
-      name: event.detail.name,
-      icon: event.detail.icon,
+        openedWindows = openedWindows.filter((e) => {
+            return e.id !== event.detail.id;
     });
     openedWindows.splice(index, 1);
     openedWindows = openedWindows;
