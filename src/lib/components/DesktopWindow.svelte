@@ -5,7 +5,7 @@
 
   export let desktopWindow: { name: string; icon: string; id: string };
 
-  let minimize = false;
+  export let minimize = false;
   let maximize = false;
 
   let windowPos = { x: 0, y: 0 };
@@ -64,8 +64,8 @@
     }}
   >
     <div class="flex gap-1">
-      <img src={icon} alt="" class="w-4/5 drag-none" />
-      <p class="font-black text-xs text-white">{name}</p>
+      <img src={desktopWindow.icon} alt="" class="w-4/5 drag-none" />
+      <p class="font-black text-xs text-white">{desktopWindow.name}</p>
     </div>
     <div class="flex">
       <div class="flex mr-0.5">
@@ -76,7 +76,7 @@
         >
           <img
             src="src/assets/window_icons/minimize.png"
-            class="bg-menu btn w-4"
+            class="bg-menu btn w-4 drag-none"
             alt=""
           />
         </button>
@@ -87,7 +87,7 @@
         >
           <img
             src="src/assets/window_icons/maximize.png"
-            class="bg-menu btn w-4"
+            class="bg-menu btn w-4 drag-none"
             alt=""
           />
         </button>
@@ -101,7 +101,7 @@
       >
         <img
           src="src/assets/window_icons/close.png"
-          class="bg-menu btn w-4"
+          class="bg-menu btn w-4 drag-none"
           alt=""
         />
       </button>

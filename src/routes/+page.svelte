@@ -1,10 +1,13 @@
 <script lang="ts">
   import DesktopIcon from "$lib/components/DesktopIcon.svelte";
   import DesktopWindow from "$lib/components/DesktopWindow.svelte";
+  import PanelApp from "$lib/components/PanelApp.svelte";
 
   import { programs } from "$lib/classes/programs";
 
     let openedWindows = new Array<{ name: string; icon: string; id: string }>();
+
+  let minimized: boolean;
 
   const handleOpen = (event: CustomEvent) => {
         openedWindows.push({
@@ -30,7 +33,7 @@
   </section>
 
   {#each openedWindows as item}
-    <DesktopWindow on:close={handleClose} name={item.name} icon={item.icon} />
+    <DesktopWindow on:close={handleClose} desktopWindow={item} />
   {/each}
 
   <footer
