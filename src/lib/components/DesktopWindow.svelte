@@ -5,7 +5,7 @@
 
   export let desktopWindow: { name: string; icon: string; id: string };
 
-  export let focused: boolean;
+  export let focused = false;
   export let minimize = false;
   let maximize = false;
 
@@ -32,7 +32,6 @@
       return `top: 0; left: 0; height: 100%; width: 100%;`;
     } else {
       return `top: ${windowPos.y}px; left: ${windowPos.x}px;`;
-      return "";
     }
   };
 

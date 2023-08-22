@@ -8,6 +8,7 @@
   let openedWindows = new Array<{ name: string; icon: string; id: string }>();
 
   let focused: string;
+  let minimized: string;
 
   const handleOpen = (event: CustomEvent) => {
     openedWindows.push({
@@ -28,7 +29,9 @@
     focused = event.detail.id;
   };
 
-  const openMinimized = (event: CustomEvent) => {};
+  const handleOpenMinimize = (event: CustomEvent) => {
+    minimized = event.detail.id;
+  };
 </script>
 
 <body class="bg-teal-700 font-sans">
@@ -42,6 +45,7 @@
     <DesktopWindow
       on:close={handleClose}
       on:focus={handleFocus}
+      minimize={minimized === item.id}
       focused={focused === item.id}
       desktopWindow={item}
     />
@@ -60,7 +64,7 @@
     />
 
     {#each openedWindows as item}
-      <PanelApp on:openMinimize={openMinimized} desktopWindow={item} />
+      <PanelApp on:openMinimize={handleOpenMinimize} desktopWindow={item} />
     {/each}
   </footer>
 </body>
