@@ -5,11 +5,10 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
-    "preview": "vite preview",
+    "package": "svelte-kit package",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-    "format": "prettier --write '**/*.js'",
-    "build:digitalocean": "npm install --production=false && npm run build && npm ci",
+    "format": "prettier --write '**/*.js'"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "^2.0.0",
