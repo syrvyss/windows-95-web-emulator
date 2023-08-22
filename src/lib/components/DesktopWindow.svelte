@@ -90,7 +90,7 @@
           }}
         >
           <img
-            src="src/assets/window_icons/minimize.png"
+            src="/window_icons/minimize.png"
             class="bg-menu btn w-4 drag-none"
             alt=""
           />
@@ -101,7 +101,7 @@
           }}
         >
           <img
-            src="src/assets/window_icons/maximize.png"
+            src="/window_icons/maximize.png"
             class="bg-menu btn w-4 drag-none"
             alt=""
           />
@@ -115,7 +115,7 @@
         }}
       >
         <img
-          src="src/assets/window_icons/close.png"
+          src="/window_icons/close.png"
           class="bg-menu btn w-4 drag-none"
           alt=""
         />

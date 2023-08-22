@@ -52,7 +52,7 @@
     class="flex gap-1 fixed bottom-0 w-full h-10 bg-menu border-t-2 border-menu-highlight p-0.5"
   >
     <div class="flex btn active:bg-menu-active w-20 p-1">
-      <img alt="" class="select-none" src="src/assets/desktop_icons/logo.png" />
+      <img alt="" class="select-none" src="/desktop_icons/logo.png" />
       <p class="align-baseline ml-1 font-bold select-none">Start</p>
     </div>
 
