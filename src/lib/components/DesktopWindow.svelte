@@ -1,13 +1,10 @@
 <script lang="ts">
+  import type window from "$lib/classes/window";
   import { createEventDispatcher } from "svelte";
 
   const dispatch = createEventDispatcher();
 
-  export let desktopWindow: { name: string; icon: string; id: string };
-
-  export let focused = false;
-  export let minimize = false;
-  let maximize = false;
+  export let desktopWindow: window;
 
   let windowPos = { x: 0, y: 0 };
 

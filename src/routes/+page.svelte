@@ -3,12 +3,9 @@
   import DesktopWindow from "$lib/components/DesktopWindow.svelte";
   import PanelApp from "$lib/components/PanelApp.svelte";
 
-  import { programs } from "$lib/classes/programs";
+  import type window from "$lib/classes/window";
 
-  let openedWindows = new Array<{ name: string; icon: string; id: string }>();
-
-  let focused: string;
-  let minimized: string;
+  let openedWindows = new Array<window>();
 
   const handleOpen = (event: CustomEvent) => {
     openedWindows.push({
@@ -19,18 +16,40 @@
     openedWindows = openedWindows;
   };
 
+  const handleMinimize = (event: CustomEvent) => {
+    openedWindows = openedWindows.filter((e: window) => {
+      if (e.id !== event.detail.id) {
+        return;
+      }
+      e.minimized = true;
+    });
+  };
+
   const handleClose = (event: CustomEvent) => {
-    openedWindows = openedWindows.filter((e) => {
+    openedWindows = openedWindows.filter((e: window) => {
       return e.id !== event.detail.id;
     });
   };
 
   const handleFocus = (event: CustomEvent) => {
-    focused = event.detail.id;
+    openedWindows.forEach((e: window) => {
+      if (e.id !== event.detail.id) {
+        return;
+      }
+      openedWindows.forEach((e: window) => (e.focused = false));
+      e.focused = true;
+    });
   };
 
   const handleOpenMinimize = (event: CustomEvent) => {
-    minimized = event.detail.id;
+    openedWindows.forEach((e: window) => {
+      if (e.id !== event.detail.id) {
+        return;
+      }
+      openedWindows.forEach((e: window) => (e.focused = false));
+      e.focused = true;
+      e.minimized = false;
+    });
   };
 </script>
 

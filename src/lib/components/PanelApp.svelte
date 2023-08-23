@@ -1,9 +1,10 @@
 <script lang="ts">
+  import type window from "$lib/classes/window";
   import { createEventDispatcher } from "svelte";
 
   const dispatch = createEventDispatcher();
 
-  export let desktopWindow: { name: string; icon: string; id: string };
+  export let desktopWindow: window;
 </script>
 
 <a

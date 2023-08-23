@@ -1,4 +1,5 @@
 <script lang="ts">
+  import type window from "$lib/classes/window";
   import { createEventDispatcher } from "svelte";
 
   const dispatch = createEventDispatcher();
