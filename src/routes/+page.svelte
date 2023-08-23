@@ -3,6 +3,7 @@
   import DesktopWindow from "$lib/components/DesktopWindow.svelte";
   import PanelApp from "$lib/components/PanelApp.svelte";
 
+  import programs from "$lib/classes/programs";
   import type window from "$lib/classes/window";
 
   let openedWindows = new Array<window>();

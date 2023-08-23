@@ -9,7 +9,7 @@
 </script>
 
 <a
-  href="#"
+  href="/"
   class="flex flex-col group w-14 items-center cursor-pointer"
   on:dblclick={() => {
     dispatch("open", {
