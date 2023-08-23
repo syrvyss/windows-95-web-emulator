@@ -1,4 +1,4 @@
-export const programs = [
+const programs = [
   {
     name: "About",
     icon: "src/assets/desktop_icons/folder.png",
@@ -12,3 +12,5 @@ export const programs = [
     icon: "src/assets/desktop_icons/internet.png",
   },
 ];
+
+export default programs;
