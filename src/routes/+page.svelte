@@ -12,6 +12,9 @@
       name: event.detail.name,
       icon: event.detail.icon,
       id: crypto.randomUUID(),
+      minimized: false,
+      maximized: false,
+      focused: true,
     });
     openedWindows = openedWindows;
   };
@@ -62,11 +65,10 @@
 
   {#each openedWindows as item}
     <DesktopWindow
+      on:minimize={handleMinimize}
       on:close={handleClose}
       on:focus={handleFocus}
-      minimize={minimized === item.id}
-      focused={focused === item.id}
-      desktopWindow={item}
+      bind:desktopWindow={item}
     />
   {/each}
 
@@ -82,8 +84,11 @@
       class="border-l-2 border-r-2 border-l-menu-shadow border-r-menu-highlight"
     />
 
-    {#each openedWindows as item}
-      <PanelApp on:openMinimize={handleOpenMinimize} desktopWindow={item} />
+    {#each openedWindows as window}
+      <PanelApp
+        on:openMinimize={handleOpenMinimize}
+        bind:desktopWindow={window}
+      />
     {/each}
   </footer>
 </body>

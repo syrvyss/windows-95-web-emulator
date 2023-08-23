@@ -11,9 +11,7 @@
   class="h-full btn w-48 flex active:bg-menu-active gap-1 p-1 group"
   href="/"
   on:click={() => {
-    dispatch("openMinimize", {
-      id: desktopWindow.id,
-    });
+    desktopWindow.minimized = !desktopWindow.minimized;
   }}
 >
   <img src={desktopWindow.icon} alt="" class="" />

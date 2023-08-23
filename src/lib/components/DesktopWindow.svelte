@@ -9,7 +9,7 @@
   let windowPos = { x: 0, y: 0 };
 
   $: focusStyling = () => {
-    if (focused) {
+    if (desktopWindow.focused) {
       return "z-index: 99;";
     } else {
       return "";
@@ -17,7 +17,7 @@
   };
 
   $: minimizeStyling = () => {
-    if (minimize) {
+    if (desktopWindow.minimized) {
       return "display: none;";
     } else {
       return "";
@@ -25,7 +25,7 @@
   };
 
   $: maximizeStyling = () => {
-    if (maximize) {
+    if (desktopWindow.maximized) {
       return `top: 0; left: 0; height: 100%; width: 100%;`;
     } else {
       return `top: ${windowPos.y}px; left: ${windowPos.x}px;`;
@@ -71,7 +71,7 @@
     role="button"
     use:dragMe
     on:dblclick={() => {
-      maximize = !maximize;
+      desktopWindow.maximized = !desktopWindow.maximized;
     }}
   >
     <div class="flex gap-1">
@@ -82,7 +82,7 @@
       <div class="flex mr-0.5">
         <button
           on:click={() => {
-            minimize = !minimize;
+            desktopWindow.minimized = true;
           }}
         >
           <img
@@ -93,7 +93,7 @@
         </button>
         <button
           on:click={() => {
-            maximize = !maximize;
+            desktopWindow.maximized = !desktopWindow.maximized;
           }}
         >
           <img
