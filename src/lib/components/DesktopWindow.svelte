@@ -1,13 +1,16 @@
 <script lang="ts">
+  import type window from "$lib/classes/window";
   import { createEventDispatcher } from "svelte";
 
   const dispatch = createEventDispatcher();
 
-  export let desktopWindow: { name: string; icon: string; id: string };
+  export let name: string;
+  export let icon: string;
+  export let id: string;
 
   export let focused: boolean;
-  export let minimize = false;
-  let maximize = false;
+  export let minimized = false;
+  export let maximized = false;
 
   let windowPos = { x: 0, y: 0 };
 
@@ -20,7 +23,7 @@
   };
 
   $: minimizeStyling = () => {
-    if (minimize) {
+    if (minimized) {
       return "display: none;";
     } else {
       return "";
@@ -28,11 +31,10 @@
   };
 
   $: maximizeStyling = () => {
-    if (maximize) {
+    if (maximized) {
       return `top: 0; left: 0; height: 100%; width: 100%;`;
     } else {
       return `top: ${windowPos.y}px; left: ${windowPos.x}px;`;
-      return "";
     }
   };
 
@@ -62,10 +64,10 @@
 <a
   style="{minimizeStyling()}{maximizeStyling()}{focusStyling()}"
   class="drag-none cursor-default bg-menu resize select-none border-2 border-b-menu-shadow border-r-menu-shadow border-menu-highlight w-96 h-52 p-0.5 absolute"
-  href=""
+  href="/"
   on:mousedown={() => {
     dispatch("focus", {
-      id: desktopWindow.id,
+      id: id,
     });
   }}
 >
@@ -75,18 +77,18 @@
     role="button"
     use:dragMe
     on:dblclick={() => {
-      maximize = !maximize;
+      maximized = !maximized;
     }}
   >
     <div class="flex gap-1">
-      <img src={desktopWindow.icon} alt="" class="w-4/5 drag-none" />
-      <p class="font-black text-xs text-white">{desktopWindow.name}</p>
+      <img src={icon} alt="" class="w-4/5 drag-none" />
+      <p class="font-black text-xs text-white">{name}</p>
     </div>
     <div class="flex">
       <div class="flex mr-0.5">
         <button
           on:click={() => {
-            minimize = !minimize;
+            minimized = true;
           }}
         >
           <img
@@ -97,7 +99,7 @@
         </button>
         <button
           on:click={() => {
-            maximize = !maximize;
+            maximized = !maximized;
           }}
         >
           <img
@@ -110,7 +112,7 @@
       <button
         on:click={() => {
           dispatch("close", {
-            id: desktopWindow.id,
+            id: id,
           });
         }}
       >

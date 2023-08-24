@@ -3,33 +3,66 @@
   import DesktopWindow from "$lib/components/DesktopWindow.svelte";
   import PanelApp from "$lib/components/PanelApp.svelte";
 
-  import { programs } from "$lib/classes/programs";
+  import programs from "$lib/classes/programs";
+  import type window from "$lib/classes/window";
 
-  let openedWindows = new Array<{ name: string; icon: string; id: string }>();
-
-  let focused: string;
-  let minimized: boolean;
+  let openedWindows = new Array<window>();
 
   const handleOpen = (event: CustomEvent) => {
+    openedWindows.forEach((e: window) => (e.focused = false));
     openedWindows.push({
       name: event.detail.name,
       icon: event.detail.icon,
       id: crypto.randomUUID(),
+      minimized: false,
+      maximized: false,
+      focused: true,
     });
     openedWindows = openedWindows;
   };
 
+  const handleMinimize = (event: CustomEvent) => {
+    openedWindows = openedWindows.filter((e: window) => {
+      if (e.id !== event.detail.id) {
+        return;
+      }
+      e.minimized = true;
+
+      openedWindows = openedWindows;
+    });
+  };
+
   const handleClose = (event: CustomEvent) => {
-    openedWindows = openedWindows.filter((e) => {
+    openedWindows = openedWindows.filter((e: window) => {
       return e.id !== event.detail.id;
     });
   };
 
   const handleFocus = (event: CustomEvent) => {
-    focused = event.detail.id;
+    openedWindows.forEach((e: window) => {
+      if (e.id !== event.detail.id) {
+        return;
+      }
+      openedWindows.forEach((e: window) => (e.focused = false));
+      e.focused = true;
+
+      openedWindows = openedWindows;
+    });
   };
 
-  const openMinimized = (event: CustomEvent) => {};
+  const handleOpenMinimize = (event: CustomEvent) => {
+    openedWindows.forEach((e: window) => {
+      if (e.id !== event.detail.id) {
+        return;
+      }
+      e.minimized = false;
+
+      openedWindows.forEach((e: window) => (e.focused = false));
+      e.focused = true;
+
+      openedWindows = openedWindows;
+    });
+  };
 </script>
 
 <body class="bg-teal-700 font-sans">
@@ -41,10 +74,15 @@
 
   {#each openedWindows as item}
     <DesktopWindow
+      on:minimize={handleMinimize}
       on:close={handleClose}
       on:focus={handleFocus}
-      focused={focused === item.id}
-      desktopWindow={item}
+      bind:minimized={item.minimized}
+      bind:maximized={item.maximized}
+      bind:focused={item.focused}
+      name={item.name}
+      icon={item.icon}
+      id={item.id}
     />
   {/each}
 
@@ -60,11 +98,10 @@
       class="border-l-2 border-r-2 border-l-menu-shadow border-r-menu-highlight"
     />
 
-    {#each openedWindows as item}
+    {#each openedWindows as window}
       <PanelApp
-        bind={minimized}
-        on:openMinimize={openMinimized}
-        desktopWindow={item}
+        on:openMinimize={handleOpenMinimize}
+        bind:desktopWindow={window}
       />
     {/each}
   </footer>
