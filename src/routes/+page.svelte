@@ -49,6 +49,8 @@
     });
   };
 
+  const handleUnfocus = (event: CustomEvent) => (focusedWindow = undefined);
+
   const handleOpenMinimize = (event: CustomEvent) => {
     openedWindows.forEach((e: window) => {
       if (e.id !== event.detail.id) {
@@ -79,9 +81,10 @@
       on:minimize={handleMinimize}
       on:close={handleClose}
       on:focus={handleFocus}
+      on:unfocus={handleUnfocus}
       bind:minimized={item.minimized}
       bind:maximized={item.maximized}
-      bind:focused={focusedWindow}
+      focused={focusedWindow === item}
       name={item.name}
       icon={item.icon}
       id={item.id}
