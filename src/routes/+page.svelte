@@ -49,7 +49,7 @@
     });
   };
 
-  const handleUnfocus = (event: CustomEvent) => (focusedWindow = undefined);
+  const handleUnfocus = () => (focusedWindow = undefined);
 
   const handleOpenMinimize = (event: CustomEvent) => {
     openedWindows.forEach((e: window) => {
