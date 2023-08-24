@@ -9,6 +9,7 @@
   let openedWindows = new Array<window>();
 
   const handleOpen = (event: CustomEvent) => {
+    openedWindows.forEach((e: window) => (e.focused = false));
     openedWindows.push({
       name: event.detail.name,
       icon: event.detail.icon,
@@ -26,6 +27,8 @@
         return;
       }
       e.minimized = true;
+
+      openedWindows = openedWindows;
     });
   };
 
@@ -42,6 +45,8 @@
       }
       openedWindows.forEach((e: window) => (e.focused = false));
       e.focused = true;
+
+      openedWindows = openedWindows;
     });
   };
 
@@ -50,9 +55,12 @@
       if (e.id !== event.detail.id) {
         return;
       }
+      e.minimized = false;
+
       openedWindows.forEach((e: window) => (e.focused = false));
       e.focused = true;
-      e.minimized = false;
+
+      openedWindows = openedWindows;
     });
   };
 </script>

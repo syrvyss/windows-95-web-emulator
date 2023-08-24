@@ -1,5 +1,4 @@
 <script lang="ts">
-  import type window from "$lib/classes/window";
   import { createEventDispatcher } from "svelte";
 
   const dispatch = createEventDispatcher();
@@ -9,7 +8,7 @@
 </script>
 
 <a
-  href="/"
+  href="#"
   class="flex flex-col group w-14 items-center cursor-pointer"
   on:dblclick={() => {
     dispatch("open", {
