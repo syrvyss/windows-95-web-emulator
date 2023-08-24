@@ -8,12 +8,14 @@
 </script>
 
 <a
-  class="h-full btn w-48 flex active:bg-menu-active gap-1 p-1 group"
+  class="{focused
+    ? 'bg-menu-active font-bold border-l-menu-shadow border-t-menu-shadow border-menu-highlight'
+    : ''} h-full btn w-48 flex gap-1 p-1 group"
   href="/"
   on:click={() => {
     desktopWindow.minimized = !desktopWindow.minimized;
   }}
 >
-  <img src={desktopWindow.icon} alt="" class="" />
-  <p class="align-middle group-active:font-bold">{desktopWindow.name}</p>
+  <img src={icon} alt="" class="" />
+  <p class="align-middle">{name}</p>
 </a>

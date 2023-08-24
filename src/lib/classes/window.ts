@@ -4,7 +4,6 @@ type window = {
     id: string;
     minimized: boolean;
     maximized: boolean;
-    focused: boolean
 }
 
 export default window;

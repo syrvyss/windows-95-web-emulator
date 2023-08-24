@@ -7,18 +7,19 @@
   import type window from "$lib/classes/window";
 
   let openedWindows = new Array<window>();
+  let focusedWindow: window;
 
   const handleOpen = (event: CustomEvent) => {
-    openedWindows.forEach((e: window) => (e.focused = false));
-    openedWindows.push({
+    let window = {
       name: event.detail.name,
       icon: event.detail.icon,
       id: crypto.randomUUID(),
       minimized: false,
       maximized: false,
-      focused: true,
-    });
-    openedWindows = openedWindows;
+    };
+
+    openedWindows.push(window);
+    focusedWindow = window;
   };
 
   const handleMinimize = (event: CustomEvent) => {
@@ -43,13 +44,8 @@
       if (e.id !== event.detail.id) {
         return;
       }
-      openedWindows.forEach((e: window) => (e.focused = false));
-      e.focused = true;
 
-      openedWindows = openedWindows;
-    });
-  };
-
+      focusedWindow = e;
   const handleOpenMinimize = (event: CustomEvent) => {
     openedWindows.forEach((e: window) => {
       if (e.id !== event.detail.id) {
@@ -58,7 +54,6 @@
       e.minimized = false;
 
       openedWindows.forEach((e: window) => (e.focused = false));
-      e.focused = true;
 
       openedWindows = openedWindows;
     });
@@ -79,7 +74,7 @@
       on:focus={handleFocus}
       bind:minimized={item.minimized}
       bind:maximized={item.maximized}
-      bind:focused={item.focused}
+      focused={focusedWindow === item}
       name={item.name}
       icon={item.icon}
       id={item.id}
