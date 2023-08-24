@@ -7,18 +7,19 @@
   import type window from "$lib/classes/window";
 
   let openedWindows = new Array<window>();
+  let focusedWindow: window | undefined;
 
   const handleOpen = (event: CustomEvent) => {
-    openedWindows.forEach((e: window) => (e.focused = false));
-    openedWindows.push({
+    let window = {
       name: event.detail.name,
       icon: event.detail.icon,
       id: crypto.randomUUID(),
       minimized: false,
       maximized: false,
-      focused: true,
-    });
-    openedWindows = openedWindows;
+    };
+
+    openedWindows.push(window);
+    focusedWindow = window;
   };
 
   const handleMinimize = (event: CustomEvent) => {
@@ -43,10 +44,8 @@
       if (e.id !== event.detail.id) {
         return;
       }
-      openedWindows.forEach((e: window) => (e.focused = false));
-      e.focused = true;
 
-      openedWindows = openedWindows;
+      focusedWindow = e;
     });
   };
 
@@ -57,15 +56,18 @@
       }
       e.minimized = false;
 
-      openedWindows.forEach((e: window) => (e.focused = false));
-      e.focused = true;
+      openedWindows.forEach((e: window) => (focusedWindow = e));
 
       openedWindows = openedWindows;
     });
   };
 </script>
 
-<body class="bg-teal-700 font-sans">
+<body class="bg-teal-700 -z-10 font-sans">
+  <button
+    class="w-full h-full absolute cursor-default"
+    on:click={() => (focusedWindow = undefined)}
+  />
   <section class="p-2 flex flex-col gap-5">
     {#each programs as programInfo}
       <DesktopIcon on:open={handleOpen} {...programInfo} />
@@ -79,7 +81,7 @@
       on:focus={handleFocus}
       bind:minimized={item.minimized}
       bind:maximized={item.maximized}
-      bind:focused={item.focused}
+      focused={focusedWindow === item}
       name={item.name}
       icon={item.icon}
       id={item.id}
@@ -101,7 +103,9 @@
     {#each openedWindows as window}
       <PanelApp
         on:openMinimize={handleOpenMinimize}
+        on:focus={handleFocus}
         bind:desktopWindow={window}
+        focused={focusedWindow === window}
       />
     {/each}
   </footer>
