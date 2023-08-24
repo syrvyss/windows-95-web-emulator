@@ -69,7 +69,12 @@
       on:minimize={handleMinimize}
       on:close={handleClose}
       on:focus={handleFocus}
-      bind:desktopWindow={item}
+      bind:minimized={item.minimized}
+      bind:maximized={item.maximized}
+      bind:focused={item.focused}
+      name={item.name}
+      icon={item.icon}
+      id={item.id}
     />
   {/each}
 
