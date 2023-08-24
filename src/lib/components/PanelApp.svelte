@@ -5,6 +5,7 @@
   const dispatch = createEventDispatcher();
 
   export let desktopWindow: window;
+  export let focused: boolean;
 </script>
 
 <a
@@ -16,6 +17,6 @@
     desktopWindow.minimized = !desktopWindow.minimized;
   }}
 >
-  <img src={icon} alt="" class="" />
-  <p class="align-middle">{name}</p>
+  <img src={desktopWindow.icon} alt="" class="" />
+  <p class="align-middle">{desktopWindow.name}</p>
 </a>

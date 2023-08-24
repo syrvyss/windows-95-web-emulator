@@ -46,6 +46,9 @@
       }
 
       focusedWindow = e;
+    });
+  };
+
   const handleOpenMinimize = (event: CustomEvent) => {
     openedWindows.forEach((e: window) => {
       if (e.id !== event.detail.id) {
@@ -53,7 +56,7 @@
       }
       e.minimized = false;
 
-      openedWindows.forEach((e: window) => (e.focused = false));
+      openedWindows.forEach((e: window) => (focusedWindow = e));
 
       openedWindows = openedWindows;
     });
@@ -97,6 +100,7 @@
       <PanelApp
         on:openMinimize={handleOpenMinimize}
         bind:desktopWindow={window}
+        focused={focusedWindow === window}
       />
     {/each}
   </footer>
