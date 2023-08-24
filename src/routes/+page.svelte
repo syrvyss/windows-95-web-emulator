@@ -81,7 +81,7 @@
       on:focus={handleFocus}
       bind:minimized={item.minimized}
       bind:maximized={item.maximized}
-      focused={focusedWindow === item}
+      bind:focused={focusedWindow}
       name={item.name}
       icon={item.icon}
       id={item.id}
