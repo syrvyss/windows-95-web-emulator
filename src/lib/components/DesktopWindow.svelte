@@ -73,7 +73,9 @@
 >
   <a
     href="/"
-    class="flex p-0.5 justify-between bg-gradient-to-r from-blue-950 to-blue-600 w-full h-5 cursor-default drag-none select-none"
+    class="flex p-0.5 justify-between bg-gradient-to-r {focused
+      ? 'from-blue-950 to-blue-600'
+      : 'from-gray-500 to-gray-400'} w-full h-5 cursor-default drag-none select-none"
     role="button"
     use:dragMe
     on:dblclick={() => {
