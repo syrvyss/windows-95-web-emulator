@@ -7,7 +7,7 @@
   import type window from "$lib/classes/window";
 
   let openedWindows = new Array<window>();
-  let focusedWindow: window;
+  let focusedWindow: window | undefined;
 
   const handleOpen = (event: CustomEvent) => {
     let window = {
@@ -63,7 +63,11 @@
   };
 </script>
 
-<body class="bg-teal-700 font-sans">
+<body class="bg-teal-700 -z-10 font-sans">
+  <button
+    class="w-full h-full absolute cursor-default"
+    on:click={() => (focusedWindow = undefined)}
+  />
   <section class="p-2 flex flex-col gap-5">
     {#each programs as programInfo}
       <DesktopIcon on:open={handleOpen} {...programInfo} />
@@ -99,6 +103,7 @@
     {#each openedWindows as window}
       <PanelApp
         on:openMinimize={handleOpenMinimize}
+        on:focus={handleFocus}
         bind:desktopWindow={window}
         focused={focusedWindow === window}
       />

@@ -14,6 +14,9 @@
     : ''} h-full btn w-48 flex gap-1 p-1 group"
   href="/"
   on:click={() => {
+    dispatch("focus", {
+      id: desktopWindow.id,
+    });
     desktopWindow.minimized = !desktopWindow.minimized;
   }}
 >
