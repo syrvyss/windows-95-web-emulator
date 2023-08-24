@@ -8,7 +8,7 @@
   export let icon: string;
   export let id: string;
 
-  export let focused: boolean | undefined;
+  export let focused: window | undefined;
   export let minimized = false;
   export let maximized = false;
 
@@ -89,7 +89,7 @@
         <button
           on:click={() => {
             minimized = true;
-            focused = false;
+            focused = undefined;
           }}
         >
           <img
