@@ -92,11 +92,13 @@
   {/each}
 
   <footer
-    class="flex gap-1 fixed bottom-0 w-full h-10 bg-menu border-t-2 border-menu-highlight p-0.5"
+    class="flex gap-1 text-sm fixed bottom-0 w-full h-8 bg-menu border-t-2 border-menu-highlight p-0.5"
   >
-    <div class="flex btn active:bg-menu-active w-20 p-1">
-      <img alt="" class="select-none" src="/desktop_icons/logo.png" />
-      <p class="align-baseline ml-1 font-bold select-none">Start</p>
+    <div
+      class="flex min-w-[70px] items-center gap-1 btn active:bg-menu-active p-1"
+    >
+      <img alt="" class="select-none w-5" src="/desktop_icons/logo.png" />
+      <p class="font-bold select-none">Start</p>
     </div>
 
     <div
