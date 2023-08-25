@@ -9,7 +9,7 @@
 
   let openedWindows = new Array<window>();
   let focusedWindow: window | undefined;
-  let panelOpen: boolean;
+  let panelOpen = false;
 
   const handleOpen = (event: CustomEvent) => {
     let window = {
@@ -60,7 +60,10 @@
 >
   <button
     class="w-full h-full absolute cursor-default"
-    on:click={() => (focusedWindow = undefined)}
+    on:click={() => {
+      focusedWindow = undefined;
+      panelOpen = false;
+    }}
   />
   <section class="p-2 flex flex-col gap-5">
     {#each programs as programInfo}
@@ -84,13 +87,16 @@
     {/each}
   {/key}
 
-  <StartPanel />
+  <StartPanel opened={panelOpen} />
 
   <footer
     class="flex gap-1 z-50 text-sm fixed bottom-0 w-screen h-8 bg-menu border-t-2 border-menu-highlight p-0.5"
   >
-    <div
-      class="flex min-w-[70px] items-center gap-1 btn-strong active:bg-menu-active p-1"
+    <button
+      class="{panelOpen
+        ? 'bg-menu-active border-menu-highlight border-t-menu-shadow border-l-menu-shadow'
+        : ''} active:bg-menu flex min-w-[70px] items-center gap-1 btn-strong p-1"
+      on:click={() => (panelOpen = !panelOpen)}
     >
       <img
         alt=""
@@ -99,7 +105,7 @@
         src="/desktop_icons/logo.png"
       />
       <p class="font-bold select-none">Start</p>
-    </div>
+    </button>
 
     {#each openedWindows as window}
       <PanelApp
