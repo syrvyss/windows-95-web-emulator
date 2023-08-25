@@ -96,7 +96,10 @@
       class="{panelOpen
         ? 'bg-menu-active border-menu-highlight border-t-menu-shadow border-l-menu-shadow'
         : ''} active:bg-menu flex min-w-[70px] items-center gap-1 btn-strong p-1"
-      on:click={() => (panelOpen = !panelOpen)}
+      on:click={() => {
+        handleUnfocus();
+        panelOpen = !panelOpen;
+      }}
     >
       <img
         alt=""
