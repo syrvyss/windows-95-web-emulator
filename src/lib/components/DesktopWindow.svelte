@@ -1,5 +1,4 @@
 <script lang="ts">
-  import type window from "$lib/classes/window";
   import { createEventDispatcher } from "svelte";
 
   const dispatch = createEventDispatcher();
@@ -64,7 +63,7 @@
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <div
   style="{minimizeStyling()}{maximizeStyling()}{focusStyling()}"
-  class="z-10 drag-none cursor-default bg-menu resize select-none border-2 border-b-menu-shadow border-r-menu-shadow border-menu-highlight w-96 h-52 p-0.5 absolute"
+  class="z-10 drag-none cursor-default bg-menu select-none panel w-96 h-52 p-0.5 absolute"
   on:mousedown={() => {
     dispatch("focus", {
       id: id,
@@ -74,8 +73,8 @@
   <!-- svelte-ignore a11y-interactive-supports-focus -->
   <div
     class="flex p-0.5 justify-between bg-gradient-to-r {focused
-      ? 'from-blue-950 to-blue-600'
-      : 'from-gray-500 to-gray-400'} w-full h-5 cursor-default drag-none select-none"
+      ? 'bg-title-bar-primary'
+      : 'bg-title-bar-secondary'} w-full h-5 cursor-default drag-none select-none"
     role="button"
     use:dragMe
     on:dblclick={() => {
@@ -96,7 +95,7 @@
         >
           <img
             src="/window_icons/minimize.png"
-            class="bg-menu btn w-4 drag-none"
+            class="bg-menu btn-strong w-4 drag-none"
             alt=""
           />
         </button>
@@ -107,7 +106,7 @@
         >
           <img
             src="/window_icons/maximize.png"
-            class="bg-menu btn w-4 drag-none"
+            class="bg-menu btn-strong w-4 drag-none"
             alt=""
           />
         </button>
@@ -121,7 +120,7 @@
       >
         <img
           src="/window_icons/close.png"
-          class="bg-menu btn w-4 drag-none"
+          class="bg-menu btn-strong w-4 drag-none"
           alt=""
         />
       </button>

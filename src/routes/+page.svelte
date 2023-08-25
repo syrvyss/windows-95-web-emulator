@@ -80,6 +80,7 @@
 
   {#each openedWindows as item}
     <DesktopWindow
+      {...item}
       on:minimize={handleMinimize}
       on:close={handleClose}
       on:focus={handleFocus}
@@ -87,25 +88,18 @@
       bind:minimized={item.minimized}
       bind:maximized={item.maximized}
       focused={focusedWindow === item}
-      name={item.name}
-      icon={item.icon}
-      id={item.id}
     />
   {/each}
 
   <footer
-    class="flex gap-1 text-sm fixed bottom-0 w-full h-8 bg-menu border-t-2 border-menu-highlight p-0.5"
+    class="flex gap-1 text-sm fixed bottom-0 w-screen h-8 bg-menu border-t-2 border-menu-highlight p-0.5"
   >
     <div
-      class="flex min-w-[70px] items-center gap-1 btn active:bg-menu-active p-1"
+      class="flex min-w-[70px] items-center gap-1 btn-strong active:bg-menu-active p-1"
     >
       <img alt="" class="select-none w-5" src="/desktop_icons/logo.png" />
       <p class="font-bold select-none">Start</p>
     </div>
-
-    <div
-      class="border-l-2 border-r-2 border-l-menu-shadow border-r-menu-highlight"
-    />
 
     {#each openedWindows as window}
       <PanelApp
