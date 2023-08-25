@@ -16,6 +16,7 @@
       id: crypto.randomUUID(),
       minimized: false,
       maximized: false,
+      position: { x: 100, y: 100 },
     };
 
     openedWindows.push(window);
@@ -78,18 +79,21 @@
     {/each}
   </section>
 
-  {#each openedWindows as item}
-    <DesktopWindow
-      {...item}
-      on:minimize={handleMinimize}
-      on:close={handleClose}
-      on:focus={handleFocus}
-      on:unfocus={handleUnfocus}
-      bind:minimized={item.minimized}
-      bind:maximized={item.maximized}
-      focused={focusedWindow === item}
-    />
-  {/each}
+  {#key openedWindows.length}
+    {#each openedWindows as item}
+      <DesktopWindow
+        {...item}
+        on:minimize={handleMinimize}
+        on:close={handleClose}
+        on:focus={handleFocus}
+        on:unfocus={handleUnfocus}
+        bind:minimized={item.minimized}
+        bind:maximized={item.maximized}
+        bind:position={item.position}
+        focused={focusedWindow === item}
+      />
+    {/each}
+  {/key}
 
   <footer
     class="flex gap-1 z-50 text-sm fixed bottom-0 w-screen h-8 bg-menu border-t-2 border-menu-highlight p-0.5"
