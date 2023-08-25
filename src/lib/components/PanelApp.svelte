@@ -12,11 +12,12 @@
   export let focused: boolean;
 </script>
 
-<a
+<!-- svelte-ignore a11y-no-static-element-interactions -->
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<div
   class="{focused
     ? 'bg-menu-active font-bold border-l-menu-shadow border-t-menu-shadow border-menu-highlight'
     : ''} items-center h-full btn w-48 flex gap-1 p-1 group"
-  href="/"
   on:click={() => {
     if (focused) {
       minimized = true;
@@ -29,4 +30,4 @@
 >
   <img src={icon} class="w-5" alt="" />
   <p class="align-middle">{name}</p>
-</a>
+</div>
