@@ -2,12 +2,14 @@
   import DesktopIcon from "$lib/components/DesktopIcon.svelte";
   import DesktopWindow from "$lib/components/DesktopWindow.svelte";
   import PanelApp from "$lib/components/PanelApp.svelte";
+  import StartPanel from "$lib/components/StartPanel.svelte";
 
   import programs from "$lib/classes/programs";
   import type window from "$lib/classes/window";
 
   let openedWindows = new Array<window>();
   let focusedWindow: window | undefined;
+  let panelOpen: boolean;
 
   const handleOpen = (event: CustomEvent) => {
     let window = {
@@ -81,6 +83,8 @@
       />
     {/each}
   {/key}
+
+  <StartPanel />
 
   <footer
     class="flex gap-1 z-50 text-sm fixed bottom-0 w-screen h-8 bg-menu border-t-2 border-menu-highlight p-0.5"
