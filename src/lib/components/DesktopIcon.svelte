@@ -9,7 +9,7 @@
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <button
-  class="flex z-10 flex-col group w-14 items-center cursor-pointer"
+  class="flex z-10 flex-col group w-14 items-center cursor-default"
   on:dblclick={() => {
     dispatch("open", {
       name: name,
