@@ -92,7 +92,7 @@
   {/each}
 
   <footer
-    class="flex gap-1 text-sm fixed bottom-0 w-screen h-8 bg-menu border-t-2 border-menu-highlight p-0.5"
+    class="flex gap-1 z-50 text-sm fixed bottom-0 w-screen h-8 bg-menu border-t-2 border-menu-highlight p-0.5"
   >
     <div
       class="flex min-w-[70px] items-center gap-1 btn-strong active:bg-menu-active p-1"
