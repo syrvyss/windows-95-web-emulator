@@ -4,7 +4,7 @@ This is a svelte implementation of a windows 95 web simulation, this is not mean
 
 ## Use
 
-This project is currently deployed to the site `nikolaj.site`. Additionaly, it gets deployed in each Pull Request.
+This project is currently deployed to the site `nikolaj.site`. Additionally, it gets deployed in each Pull Request.
 
 ## Usage
 
