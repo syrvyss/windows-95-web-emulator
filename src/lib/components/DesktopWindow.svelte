@@ -11,11 +11,11 @@
   export let minimized = false;
   export let maximized = false;
 
-  let windowPos = { x: 0, y: 0 };
+  let windowPos = { x: 100, y: 100 };
 
   $: focusStyling = () => {
     if (focused) {
-      return "z-index: 99;";
+      return "z-index: 11;";
     } else {
       return "";
     }
