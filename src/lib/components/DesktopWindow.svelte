@@ -64,7 +64,7 @@
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <div
   style="{minimizeStyling()}{maximizeStyling()}{focusStyling()}"
-  class="drag-none cursor-default bg-menu resize select-none border-2 border-b-menu-shadow border-r-menu-shadow border-menu-highlight w-96 h-52 p-0.5 absolute"
+  class="z-10 drag-none cursor-default bg-menu resize select-none border-2 border-b-menu-shadow border-r-menu-shadow border-menu-highlight w-96 h-52 p-0.5 absolute"
   on:mousedown={() => {
     dispatch("focus", {
       id: id,
