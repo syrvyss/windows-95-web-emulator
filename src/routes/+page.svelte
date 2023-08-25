@@ -65,7 +65,9 @@
   };
 </script>
 
-<body class="bg-teal-700 -z-10 font-sans">
+<body
+  class="bg-background-blue overflow-clip h-screen relative -z-10 font-sans"
+>
   <button
     class="w-full h-full absolute cursor-default"
     on:click={() => (focusedWindow = undefined)}
