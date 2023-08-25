@@ -16,8 +16,8 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
   class="{focused
-    ? 'bg-menu-active font-bold border-l-menu-shadow border-t-menu-shadow border-menu-highlight'
-    : ''} items-center h-full btn w-48 flex gap-1 p-1 group"
+    ? 'bg-menu-active font-bold dots border-l-menu-shadow border-t-menu-shadow border-menu-highlight'
+    : ''} items-center h-full btn-strong w-48 flex gap-1 p-1 group"
   on:click={() => {
     if (focused) {
       minimized = true;
@@ -29,5 +29,5 @@
   }}
 >
   <img src={icon} class="w-5" alt="" />
-  <p class="align-middle">{name}</p>
+  <p class="truncate align-middle">{name}</p>
 </div>
