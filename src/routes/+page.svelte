@@ -1,4 +1,6 @@
 <script lang="ts">
+  // Copyright (C) 2023 Nikolaj Lübker
+
   import DesktopIcon from "$lib/components/DesktopIcon.svelte";
   import DesktopWindow from "$lib/components/DesktopWindow.svelte";
   import PanelApp from "$lib/components/PanelApp.svelte";
