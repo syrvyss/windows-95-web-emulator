@@ -28,6 +28,6 @@
     }
   }}
 >
-  <img src={icon} class="w-5" alt="" />
+  <img src={icon} draggable="false" class="w-5" alt="" />
   <p class="truncate align-middle">{name}</p>
 </div>

@@ -92,7 +92,12 @@
     <div
       class="flex min-w-[70px] items-center gap-1 btn-strong active:bg-menu-active p-1"
     >
-      <img alt="" class="select-none w-5" src="/desktop_icons/logo.png" />
+      <img
+        alt=""
+        draggable="false"
+        class="select-none w-5"
+        src="/desktop_icons/logo.png"
+      />
       <p class="font-bold select-none">Start</p>
     </div>
 
