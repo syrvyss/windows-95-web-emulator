@@ -24,8 +24,8 @@
     >
       <div class="flex items-center gap-2">
         <img
-          class="select-none w-8 h-8 drag-none"
-          src="/desktop_icons/folder.png"
+          class="[image-rendering:pixelated] select-none w-8 h-8 drag-none"
+          src="/panel_icons/programs.png"
           alt=""
           draggable="false"
         />
@@ -40,8 +40,8 @@
     >
       <div class="flex items-center gap-2">
         <img
-          class="select-none w-8 h-8 drag-none"
-          src="/desktop_icons/folder.png"
+          class="[image-rendering:pixelated] select-none w-8 h-8 drag-none"
+          src="/panel_icons/documents.png"
           alt=""
           draggable="false"
         />
@@ -56,8 +56,8 @@
     >
       <div class="flex items-center gap-2">
         <img
-          class="select-none w-8 h-8 drag-none"
-          src="/desktop_icons/folder.png"
+          class="[image-rendering:pixelated] select-none w-8 h-8 drag-none"
+          src="/panel_icons/settings.png"
           alt=""
           draggable="false"
         />
@@ -72,8 +72,8 @@
     >
       <div class="flex items-center gap-2">
         <img
-          class="select-none w-8 h-8 drag-none"
-          src="/desktop_icons/folder.png"
+          class="[image-rendering:pixelated] select-none w-8 h-8 drag-none"
+          src="/panel_icons/find.png"
           alt=""
           draggable="false"
         />
@@ -88,8 +88,8 @@
     >
       <div class="flex items-center gap-2">
         <img
-          class="select-none w-8 h-8 drag-none"
-          src="/desktop_icons/folder.png"
+          class="[image-rendering:pixelated] select-none w-8 h-8 drag-none"
+          src="/panel_icons/help.png"
           alt=""
           draggable="false"
         />
@@ -104,8 +104,8 @@
     >
       <div class="flex items-center gap-2">
         <img
-          class="select-none w-8 h-8 drag-none"
-          src="/desktop_icons/folder.png"
+          class="[image-rendering:pixelated] select-none w-8 h-8 drag-none"
+          src="/panel_icons/run.png"
           alt=""
           draggable="false"
         />
@@ -123,8 +123,8 @@
     >
       <div class="flex items-center gap-2">
         <img
-          class="select-none w-8 h-8 drag-none"
-          src="/desktop_icons/folder.png"
+          class="[image-rendering:pixelated] select-none w-8 h-8 drag-none"
+          src="/panel_icons/computer.png"
           alt=""
           draggable="false"
         />

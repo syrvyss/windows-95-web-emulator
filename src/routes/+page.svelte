@@ -104,7 +104,7 @@
       <img
         alt=""
         draggable="false"
-        class="select-none w-5"
+        class="[image-rendering:pixelated] select-none w-5"
         src="/desktop_icons/logo.png"
       />
       <p class="font-bold select-none">Start</p>
