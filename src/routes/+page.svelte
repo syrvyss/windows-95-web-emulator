@@ -107,9 +107,10 @@
 
     {#each openedWindows as window}
       <PanelApp
-        on:openMinimize={handleOpenMinimize}
+        {...window}
         on:focus={handleFocus}
-        bind:desktopWindow={window}
+        on:unfocus={handleUnfocus}
+        bind:minimized={window.minimized}
         focused={focusedWindow === window}
       />
     {/each}
