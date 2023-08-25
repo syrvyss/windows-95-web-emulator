@@ -1,7 +1,7 @@
 type window = {
     name: string;
     icon: string;
-    id: string;
+    readonly id: string;
     minimized: boolean;
     maximized: boolean;
 }

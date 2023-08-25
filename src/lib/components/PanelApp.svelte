@@ -4,7 +4,11 @@
 
   const dispatch = createEventDispatcher();
 
-  export let desktopWindow: window;
+  export let id: string;
+  export let name: string;
+  export let icon: string;
+
+  export let minimized: boolean;
   export let focused: boolean;
 </script>
 
@@ -14,12 +18,15 @@
     : ''} items-center h-full btn w-48 flex gap-1 p-1 group"
   href="/"
   on:click={() => {
-    dispatch("focus", {
-      id: desktopWindow.id,
-    });
-    desktopWindow.minimized = !desktopWindow.minimized;
+    if (focused) {
+      minimized = true;
+      dispatch("unfocus");
+    } else {
+      minimized = false;
+      dispatch("focus", { id: id });
+    }
   }}
 >
-  <img src={desktopWindow.icon} class="w-5" alt="" />
-  <p class="align-middle">{desktopWindow.name}</p>
+  <img src={icon} class="w-5" alt="" />
+  <p class="align-middle">{name}</p>
 </a>
