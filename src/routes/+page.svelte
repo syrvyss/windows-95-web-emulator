@@ -2,12 +2,14 @@
   import DesktopIcon from "$lib/components/DesktopIcon.svelte";
   import DesktopWindow from "$lib/components/DesktopWindow.svelte";
   import PanelApp from "$lib/components/PanelApp.svelte";
+  import StartPanel from "$lib/components/StartPanel.svelte";
 
   import programs from "$lib/classes/programs";
   import type window from "$lib/classes/window";
 
   let openedWindows = new Array<window>();
   let focusedWindow: window | undefined;
+  let panelOpen = false;
 
   const handleOpen = (event: CustomEvent) => {
     let window = {
@@ -51,19 +53,6 @@
   };
 
   const handleUnfocus = () => (focusedWindow = undefined);
-
-  const handleOpenMinimize = (event: CustomEvent) => {
-    openedWindows.forEach((e: window) => {
-      if (e.id !== event.detail.id) {
-        return;
-      }
-      e.minimized = false;
-
-      openedWindows.forEach((e: window) => (focusedWindow = e));
-
-      openedWindows = openedWindows;
-    });
-  };
 </script>
 
 <body
@@ -71,7 +60,10 @@
 >
   <button
     class="w-full h-full absolute cursor-default"
-    on:click={() => (focusedWindow = undefined)}
+    on:click={() => {
+      focusedWindow = undefined;
+      panelOpen = false;
+    }}
   />
   <section class="p-2 flex flex-col gap-5">
     {#each programs as programInfo}
@@ -95,15 +87,28 @@
     {/each}
   {/key}
 
+  <StartPanel opened={panelOpen} />
+
   <footer
     class="flex gap-1 z-50 text-sm fixed bottom-0 w-screen h-8 bg-menu border-t-2 border-menu-highlight p-0.5"
   >
-    <div
-      class="flex min-w-[70px] items-center gap-1 btn-strong active:bg-menu-active p-1"
+    <button
+      class="{panelOpen
+        ? 'bg-menu-active border-menu-highlight border-t-menu-shadow border-l-menu-shadow'
+        : ''} active:bg-menu flex min-w-[70px] items-center gap-1 btn-strong p-1"
+      on:click={() => {
+        handleUnfocus();
+        panelOpen = !panelOpen;
+      }}
     >
-      <img alt="" class="select-none w-5" src="/desktop_icons/logo.png" />
+      <img
+        alt=""
+        draggable="false"
+        class="select-none w-5"
+        src="/desktop_icons/logo.png"
+      />
       <p class="font-bold select-none">Start</p>
-    </div>
+    </button>
 
     {#each openedWindows as window}
       <PanelApp
