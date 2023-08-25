@@ -1,4 +1,4 @@
-# `Windows 95 simulated web emulator`
+# `Windows 95 simulated web emulator` (better name pending)
 
 This is a svelte implementation of a windows 95 web simulation, this is not meant for actual productive use.
 
