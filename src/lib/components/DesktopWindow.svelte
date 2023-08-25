@@ -61,18 +61,18 @@
   };
 </script>
 
-<a
+<!-- svelte-ignore a11y-no-static-element-interactions -->
+<div
   style="{minimizeStyling()}{maximizeStyling()}{focusStyling()}"
   class="drag-none cursor-default bg-menu resize select-none border-2 border-b-menu-shadow border-r-menu-shadow border-menu-highlight w-96 h-52 p-0.5 absolute"
-  href="/"
   on:mousedown={() => {
     dispatch("focus", {
       id: id,
     });
   }}
 >
-  <a
-    href="/"
+  <!-- svelte-ignore a11y-interactive-supports-focus -->
+  <div
     class="flex p-0.5 justify-between bg-gradient-to-r {focused
       ? 'from-blue-950 to-blue-600'
       : 'from-gray-500 to-gray-400'} w-full h-5 cursor-default drag-none select-none"
@@ -126,5 +126,5 @@
         />
       </button>
     </div>
-  </a>
-</a>
+  </div>
+</div>

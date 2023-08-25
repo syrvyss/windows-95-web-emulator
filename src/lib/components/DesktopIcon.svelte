@@ -7,9 +7,10 @@
   export let icon: string;
 </script>
 
+<!-- svelte-ignore a11y-no-static-element-interactions -->
 <a
-  href="#"
   class="flex z-10 flex-col group w-14 items-center cursor-pointer"
+  href="#"
   on:dblclick={() => {
     dispatch("open", {
       name: name,
