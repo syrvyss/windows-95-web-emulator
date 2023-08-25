@@ -39,9 +39,6 @@
   const dragMe = (node: any) => {
     let moving = false;
 
-    node.style.position = "relative";
-    node.style.userSelect = "none";
-
     node.addEventListener("mousedown", () => {
       moving = true;
     });

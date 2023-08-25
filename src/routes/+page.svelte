@@ -51,19 +51,6 @@
   };
 
   const handleUnfocus = () => (focusedWindow = undefined);
-
-  const handleOpenMinimize = (event: CustomEvent) => {
-    openedWindows.forEach((e: window) => {
-      if (e.id !== event.detail.id) {
-        return;
-      }
-      e.minimized = false;
-
-      openedWindows.forEach((e: window) => (focusedWindow = e));
-
-      openedWindows = openedWindows;
-    });
-  };
 </script>
 
 <body
