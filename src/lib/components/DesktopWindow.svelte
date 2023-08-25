@@ -10,8 +10,7 @@
   export let focused: boolean;
   export let minimized = false;
   export let maximized = false;
-
-  let windowPos = { x: 100, y: 100 };
+  export let position = { x: 100, y: 100 };
 
   $: focusStyling = () => {
     if (focused) {
@@ -33,7 +32,7 @@
     if (maximized) {
       return `top: 0; left: 0; height: 100%; width: 100%;`;
     } else {
-      return `top: ${windowPos.y}px; left: ${windowPos.x}px;`;
+      return `top: ${position.y}px; left: ${position.x}px;`;
     }
   };
 
@@ -49,8 +48,8 @@
 
     window.addEventListener("mousemove", (e: any) => {
       if (moving) {
-        windowPos.x += e.movementX;
-        windowPos.y += e.movementY;
+        position.x += e.movementX;
+        position.y += e.movementY;
       }
     });
 
