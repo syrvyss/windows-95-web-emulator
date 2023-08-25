@@ -18,13 +18,13 @@
   }}
 >
   <img
-    class="w-10 select-none group-active:bg-blue-799 bg-clip-border"
+    class="[image-rendering:pixelated] w-10 select-none group-active:bg-blue-799 bg-clip-border"
     src={icon}
     alt=""
     draggable="false"
   />
   <p
-    class="mt-1 w-full border group-focus:border-gray-100 group-active:bg-blue-800 border-teal-700 border-dotted bg-clip-content text-xs text-center text-white select-none"
+    class="mt-1 w-full border group-focus:border-gray-100 group-active:bg-blue-800 border-transparent border-dotted bg-clip-content text-xs text-center text-white select-none"
   >
     {name}
   </p>
