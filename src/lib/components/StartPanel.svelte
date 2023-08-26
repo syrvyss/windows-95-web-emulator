@@ -6,14 +6,14 @@
 <div
   class="{opened
     ? ''
-    : 'hidden'} panel left-1 z-[51] bottom-6 mx-auto w-60 h-96 absolute grid grid-cols-5"
+    : 'hidden'} panel left-1 z-[51] bottom-7 mx-auto w-60 h-96 absolute grid grid-cols-5"
 >
   <div class="bg-title-bar-secondary w-100 h-100 flex">
     <p
       class="select-none mx-auto mb-2 align-middle text-4xl text-white w-100 -rotate-180"
       style="writing-mode: vertical-rl; text-orientation: sideways;"
     >
-      <span class="font-black">Bingrows </span>
+      <span class="font-black text-neutral-400">Bingrows </span>
       <span class="font-extralight">89+1</span>
     </p>
   </div>
@@ -116,7 +116,7 @@
       <p class="font-bold inline align-baseline select-none">►</p>
     </div>
 
-    <hr />
+    <hr class="border-t-menu-shadow border-b-menu-highlight border" />
 
     <div
       class="row-span-2 hover:bg-title-bar-primary hover:text-white flex justify-between items-center pl-2 pr-2"
@@ -132,7 +132,6 @@
           Sh<span class="underline">u</span>t Down...
         </p>
       </div>
-      <p class="font-bold inline align-baseline select-none">►</p>
     </div>
   </div>
 </div>

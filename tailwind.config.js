@@ -7,7 +7,7 @@ export default {
     extend: {
       colors: {
         "menu": "#bebebe",
-        "menu-highlight": "#dfdfdf",
+        "menu-highlight": "#ffffff",
         "menu-shadow": "#555555",
         "menu-active": "#ffffff",
         "background-blue": "#008080",
@@ -38,8 +38,8 @@ export default {
     plugin(function ({ addComponents }) {
       addComponents({
         ".btn": {
-          "border-width": "1px",
-          "border-color": "#dfdfdf",
+          "border-width": "2px",
+          "border-color": "#ffffff",
           "border-bottom-color": "#555555",
           "border-right-color": "#555555",
           "background-color": "#bebebe",
@@ -53,13 +53,13 @@ export default {
         },
         ".btn-strong": {
           "border-width": "2px",
-          "border-color": "#dfdfdf",
+          "border-color": "#ffffff",
           "border-bottom-color": "#555555",
           "border-right-color": "#555555",
           "background-color": "#bebebe",
           "user-select": "none",
           "&:active": {
-            "border-color": "#dfdfdf",
+            "border-color": "#ffffff",
             "border-top-color": "#4b5563",
             "border-left-color": "#4b5563",
             "border-bottom-color": "#e5e6eb",
@@ -68,7 +68,7 @@ export default {
         },
         ".panel": {
           "padding": "0.125rem",
-          "border-width": "1px",
+          "border-width": "2px",
           "border-color": "#ffffff",
           "border-bottom-color": "#555555",
           "border-right-color": "#555555",
