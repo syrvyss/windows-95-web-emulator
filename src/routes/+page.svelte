@@ -17,6 +17,7 @@
     let window = {
       name: event.detail.name,
       icon: event.detail.icon,
+      type: event.detail.type,
       id: crypto.randomUUID(),
       minimized: false,
       maximized: false,
