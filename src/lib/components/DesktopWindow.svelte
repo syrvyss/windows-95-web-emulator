@@ -1,11 +1,13 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
+  import ContextMenu from "./ContextMenu.svelte";
 
   const dispatch = createEventDispatcher();
 
   export let name: string;
   export let icon: string;
   export let id: string;
+  export let type: string;
 
   export let focused: boolean;
   export let minimized = false;
@@ -68,7 +70,7 @@
 >
   <!-- svelte-ignore a11y-interactive-supports-focus -->
   <div
-    class="flex p-0.5 justify-between bg-gradient-to-r {focused
+    class="flex p-0.5 justify-between {focused
       ? 'bg-title-bar-primary'
       : 'bg-title-bar-secondary'} w-full h-5 cursor-default drag-none select-none"
     role="button"
@@ -122,4 +124,5 @@
       </button>
     </div>
   </div>
+  <ContextMenu {type} />
 </div>

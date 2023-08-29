@@ -5,6 +5,7 @@
 
   export let name: string;
   export let icon: string;
+  export let type: string;
 </script>
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->
@@ -14,6 +15,7 @@
     dispatch("open", {
       name: name,
       icon: icon,
+      type: type,
     });
   }}
 >
