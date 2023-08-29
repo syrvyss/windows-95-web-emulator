@@ -6,13 +6,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        "menu": "#bebebe",
+        menu: "#bebebe",
         "menu-highlight": "#ffffff",
         "menu-shadow": "#555555",
         "menu-active": "#ffffff",
         "background-blue": "#008080",
         "title-bar-primary": "#000080",
-        "title-bar-secondary": "#808080"
+        "title-bar-secondary": "#808080",
       },
     },
   },
@@ -28,10 +28,11 @@ export default {
         },
 
         ".dots": {
-          "background-image": "radial-gradient(white 0.6px, transparent 0.6px), radial-gradient(black 0.6px, transparent 0.6px)",
+          "background-image":
+            "radial-gradient(white 0.6px, transparent 0.6px), radial-gradient(black 0.6px, transparent 0.6px)",
           "background-size": "calc(2.6 * 1px) calc(2.6 * 1px)",
-          "background-position": "0 0, calc(10 * 5px) calc(10 * 5px)"
-        }
+          "background-position": "0 0, calc(10 * 5px) calc(10 * 5px)",
+        },
       });
     }),
 
