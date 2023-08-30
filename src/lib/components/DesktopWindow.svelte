@@ -1,6 +1,7 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
   import ContextMenu from "./ContextMenu.svelte";
+  import WindowContent from "./WindowContent.svelte";
 
   const dispatch = createEventDispatcher();
 
@@ -125,4 +126,9 @@
     </div>
   </div>
   <ContextMenu {type} />
+  <div
+    class="h-full border-menu-shadow border-2 border-b-menu-active border-r-menu-active"
+  >
+    <WindowContent {type} />
+  </div>
 </div>
