@@ -61,7 +61,7 @@
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <div
   style="{minimizeStyling()}{maximizeStyling()}{focusStyling()}"
-  class="z-10 drag-none cursor-default bg-menu select-none panel w-96 h-52 p-0.5 absolute"
+  class="flex flex-col z-10 drag-none cursor-default bg-menu select-none panel w-96 h-52 p-0.5 absolute"
   on:mousedown={() => {
     dispatch("focus", {
       id: id,
@@ -70,7 +70,7 @@
 >
   <!-- svelte-ignore a11y-interactive-supports-focus -->
   <div
-    class="flex p-0.5 justify-between {focused
+    class="flex p-0.5 justify-between relative {focused
       ? 'bg-title-bar-primary'
       : 'bg-title-bar-secondary'} w-full h-5 cursor-default drag-none select-none"
     role="button"
@@ -80,7 +80,7 @@
     }}
   >
     <div class="flex gap-1">
-      <img src={icon} alt="" class="w-4/5 drag-none" />
+      <img src={icon} alt="" class="h-full drag-none" />
       <p class="font-black text-xs text-white">{name}</p>
     </div>
     <div class="flex">

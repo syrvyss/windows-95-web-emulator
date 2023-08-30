@@ -10,7 +10,7 @@
   })!.entries;
 </script>
 
-<div class="flex h-6 border-b-2 border-b-menu-shadow border-menu">
+<div class="flex h-6 relative border-menu">
   {#each context_menu_entries as entry}
     <button
       class="text-xs px-1 active:bg-title-bar-primary active:text-white inline-flex items-center text-center p-0"
