@@ -82,7 +82,9 @@
   >
     <div class="flex gap-1">
       <img src={icon} alt="" class="h-full drag-none" />
-      <p class="font-black text-xs text-white">{name}</p>
+      <p class="font-black text-xs text-white">
+        {name} - {type[0].toUpperCase() + type.slice(1)}
+      </p>
     </div>
     <div class="flex">
       <div class="flex mr-0.5">
