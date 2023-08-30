@@ -28,10 +28,9 @@ export default {
         },
 
         ".dots": {
-          "background-image":
-            "radial-gradient(white 0.6px, transparent 0.6px), radial-gradient(black 0.6px, transparent 0.6px)",
-          "background-size": "calc(2.6 * 1px) calc(2.6 * 1px)",
-          "background-position": "0 0, calc(10 * 5px) calc(10 * 5px)",
+          "background-image":  "repeating-linear-gradient(45deg, #bebebe 25%, transparent 25%, transparent 75%, #bebebe 75%, #bebebe), repeating-linear-gradient(45deg, #bebebe 25%, #ffffff 25%, #ffffff 75%, #bebebe 75%, #bebebe)",
+          "background-position": "0 0, 4px 4px",
+          "background-size": "2px 2px",
         },
       });
     }),
