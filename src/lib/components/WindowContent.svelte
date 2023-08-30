@@ -3,5 +3,7 @@
 </script>
 
 {#if type === "text"}
-  <textarea class="w-full h-full resize-none block outline-none text-xs" />
+  <textarea
+    class="overflow-scroll whitespace-nowrap w-full h-full resize-none block outline-none text-xs"
+  />
 {/if}
