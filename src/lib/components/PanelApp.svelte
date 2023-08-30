@@ -7,6 +7,7 @@
   export let id: string;
   export let name: string;
   export let icon: string;
+  export let type: string;
 
   export let minimized: boolean;
   export let focused: boolean;
@@ -34,5 +35,7 @@
     class=" [image-rendering:pixelated] w-5"
     alt=""
   />
-  <p class="truncate align-middle">{name}</p>
+  <p class="truncate align-middle">
+    {name} - {type[0].toUpperCase() + type.slice(1)}
+  </p>
 </div>
