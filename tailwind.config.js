@@ -6,7 +6,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        menu: "#bebebe",
+        "menu": "#bebebe",
         "menu-highlight": "#ffffff",
         "menu-shadow": "#555555",
         "menu-active": "#ffffff",
