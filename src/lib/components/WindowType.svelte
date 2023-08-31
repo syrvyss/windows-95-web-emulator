@@ -8,8 +8,8 @@
 </script>
 
 {#if type === "text"}
-  <ContextMenu {type} />
   <Text>
+    <ContextMenu slot="contextMenu" {type} />
     <Content />
   </Text>
 {/if}
@@ -19,8 +19,8 @@
 {/if}
 
 {#if type === "internet"}
-  <ContextMenu {type} />
   <Internet>
+    <ContextMenu slot="contextMenu" {type} />
     <Content />
   </Internet>
 {/if}

@@ -1,6 +1,8 @@
 <script>
 </script>
 
+<slot name="contextMenu" />
+
 <div class="flex justify-between border border-menu-highlight h-[100px] px-1">
   <div class="flex gap-[1px] items-center cursor-col-resize">
     <div
