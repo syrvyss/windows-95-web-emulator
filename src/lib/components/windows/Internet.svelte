@@ -19,7 +19,7 @@
           class="flex flex-col justify-around w-14 hover:btn border-2 border-transparent"
         >
           <img
-            class="w-6 drag-none mx-auto"
+            class="[image-rendering:pixelated] w-6 drag-none mx-auto"
             src="window_icons/back.png"
             alt=""
           />
@@ -29,7 +29,7 @@
           class="flex flex-col justify-around w-14 hover:btn border-2 border-transparent"
         >
           <img
-            class="w-6 drag-none mx-auto"
+            class="[image-rendering:pixelated] w-6 drag-none mx-auto"
             src="window_icons/forward.png"
             alt=""
           />
@@ -39,7 +39,7 @@
           class="flex flex-col justify-around w-14 hover:btn border-2 border-transparent"
         >
           <img
-            class="w-6 drag-none mx-auto"
+            class="[image-rendering:pixelated] w-6 drag-none mx-auto"
             src="window_icons/stop.png"
             alt=""
           />
@@ -49,7 +49,7 @@
           class="flex flex-col justify-around w-14 hover:btn border-2 border-transparent"
         >
           <img
-            class="w-6 drag-none mx-auto"
+            class="[image-rendering:pixelated] w-6 drag-none mx-auto"
             src="window_icons/refresh.png"
             alt=""
           />
@@ -59,7 +59,7 @@
           class="flex flex-col justify-around w-14 hover:btn border-2 border-transparent"
         >
           <img
-            class="w-6 drag-none mx-auto"
+            class="[image-rendering:pixelated] w-6 drag-none mx-auto"
             src="window_icons/home.png"
             alt=""
           />
@@ -70,7 +70,7 @@
         class="ml-auto h-auto flex flex-col justify-between border border-transparent border-l-menu-highlight"
       >
         <img
-          class="col drag-none bg-black p-1 h-full"
+          class="[image-rendering:pixelated] col drag-none bg-black p-1 h-full"
           src="desktop_icons/internet.png"
           alt=""
         />
@@ -99,4 +99,6 @@
     </div>
   </div>
 </div>
-<Content scroll={true} />
+<Content scroll={true}>
+  <slot name="content" />
+</Content>
