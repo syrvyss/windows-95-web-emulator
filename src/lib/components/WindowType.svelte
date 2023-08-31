@@ -4,6 +4,8 @@
   import ContextMenu from "./ContextMenu.svelte";
   import Content from "./Content.svelte";
 
+  import About from "./internet_sites/About.svelte";
+
   export let type: string;
   export let size: { x: number; y: number };
 
@@ -26,5 +28,6 @@
 {#if type === "internet"}
   <Internet>
     <ContextMenu slot="contextMenu" {type} />
+    <About slot="content" />
   </Internet>
 {/if}
