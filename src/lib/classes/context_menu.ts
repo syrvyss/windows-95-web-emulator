@@ -9,7 +9,7 @@ const contextMenu = [
   },
   {
     type: "internet",
-    entries: ["File", "Edit", "Search", "Help"],
+    entries: ["File", "Edit", "View", "Go", "Favorites", "Help"],
   },
 ];
 
