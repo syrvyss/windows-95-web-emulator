@@ -5,6 +5,9 @@ export default {
   content: ["./src/**/*.{html,js,svelte,ts}"],
   theme: {
     extend: {
+      fontFamily: {
+        "comic": ["Comic Sans MS"]
+      },
       colors: {
         "menu": "#bebebe",
         "menu-highlight": "#ffffff",
