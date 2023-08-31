@@ -6,7 +6,7 @@
   export let type: string;
 
   let context_menu_entries = contextMenu.find((x) => {
-    return type === type;
+    return x.type === type;
   })!.entries;
 </script>
 

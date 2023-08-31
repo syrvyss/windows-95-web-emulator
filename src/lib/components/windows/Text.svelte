@@ -1,9 +1,7 @@
-<script lang="ts">
-  export let type: string;
-</script>
+<script></script>
 
-{#if type === "text"}
+<slot>
   <textarea
     class="overflow-scroll whitespace-nowrap w-full h-full resize-none block outline-none text-xs"
   />
-{/if}
+</slot>
