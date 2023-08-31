@@ -10,17 +10,16 @@
 {#if type === "text"}
   <Text>
     <ContextMenu slot="contextMenu" {type} />
-    <Content />
   </Text>
 {/if}
 
 {#if type === "folder"}
   <ContextMenu {type} />
+  <Content />
 {/if}
 
 {#if type === "internet"}
   <Internet>
     <ContextMenu slot="contextMenu" {type} />
-    <Content />
   </Internet>
 {/if}
