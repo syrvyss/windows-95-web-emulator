@@ -25,7 +25,7 @@ For additional commands, please check the package.json file.
 ## Projects used
 
 - [Svelte](https://svelte.dev/) Very intuitive web framework
-- [Memphis98 Icon Pack](https://github.com/Stanton731/Memphis98) Super nice retro themed icon pack!
+- [Win98SE Icon Pack](https://github.com/nestoris/Win98SE) Great icon pack!
 
 For a more detailed dependency overview, check the package.json file.
 
