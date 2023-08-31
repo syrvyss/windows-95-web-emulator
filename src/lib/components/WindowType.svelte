@@ -5,6 +5,11 @@
   import Content from "./Content.svelte";
 
   export let type: string;
+  export let size: { x: number; y: number };
+
+  if (type === "internet") {
+    size = { x: 800, y: 600 };
+  }
 </script>
 
 {#if type === "text"}

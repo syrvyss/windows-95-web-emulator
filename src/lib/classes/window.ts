@@ -6,6 +6,7 @@ type window = {
   minimized: boolean;
   maximized: boolean;
   position: { x: number; y: number };
+  size: { x: number; y: number };
 };
 
 export default window;

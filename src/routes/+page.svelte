@@ -22,6 +22,7 @@
       minimized: false,
       maximized: false,
       position: { x: 100, y: 100 },
+      size: { x: 400, y: 250 },
     };
 
     openedWindows.push(window);
@@ -85,6 +86,7 @@
         bind:minimized={item.minimized}
         bind:maximized={item.maximized}
         bind:position={item.position}
+        bind:size={item.size}
         focused={focusedWindow === item}
       />
     {/each}
