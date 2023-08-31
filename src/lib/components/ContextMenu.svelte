@@ -1,6 +1,4 @@
 <script lang="ts">
-  import programs from "$lib/classes/programs";
-  import type window from "$lib/classes/window";
   import contextMenu from "$lib/classes/context_menu";
 
   export let type: string;

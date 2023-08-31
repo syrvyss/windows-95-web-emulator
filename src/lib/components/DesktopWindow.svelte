@@ -13,7 +13,9 @@
   export let focused: boolean;
   export let minimized = false;
   export let maximized = false;
+
   export let position = { x: 100, y: 100 };
+  export let size = { x: 800, y: 600 };
 
   $: focusStyling = () => {
     if (focused) {
@@ -61,8 +63,8 @@
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <div
-  style="{minimizeStyling()}{maximizeStyling()}{focusStyling()}"
-  class="flex flex-col z-10 drag-none cursor-default bg-menu select-none panel w-96 h-52 p-0.5 absolute"
+  style="height:{size.y}px; width:{size.x}px;{minimizeStyling()}{maximizeStyling()}{focusStyling()}"
+  class="flex flex-col z-10 drag-none cursor-default bg-menu select-none panel h-[{size.y}px] w-[{size.x}px] p-0.5 absolute"
   on:mousedown={() => {
     dispatch("focus", {
       id: id,
@@ -127,5 +129,6 @@
       </button>
     </div>
   </div>
-  <WindowType {type} />
+
+  <WindowType bind:size {type} />
 </div>
