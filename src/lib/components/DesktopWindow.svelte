@@ -130,5 +130,5 @@
     </div>
   </div>
 
-  <WindowType bind:size {type} />
+  <WindowType {name} bind:size {type} />
 </div>
