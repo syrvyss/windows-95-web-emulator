@@ -10,7 +10,7 @@
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <button
-  class="flex z-10 flex-col group w-14 items-center cursor-default"
+  class="group z-10 flex w-14 cursor-default flex-col items-center"
   on:dblclick={() => {
     dispatch("open", {
       name: name,
@@ -20,13 +20,13 @@
   }}
 >
   <img
-    class="[image-rendering:pixelated] w-10 select-none group-active:bg-blue-799 bg-clip-border"
+    class="group-active:bg-blue-799 w-10 select-none bg-clip-border [image-rendering:pixelated]"
     src={icon}
     alt=""
     draggable="false"
   />
   <p
-    class="mt-1 w-full border group-focus:border-gray-100 group-active:bg-blue-800 border-transparent border-dotted bg-clip-content text-xs text-center text-white select-none"
+    class="mt-1 w-full select-none border border-dotted border-transparent bg-clip-content text-center text-xs text-white group-focus:border-gray-100 group-active:bg-blue-800"
   >
     {name}
   </p>

@@ -60,16 +60,16 @@
 </script>
 
 <body
-  class="bg-background-blue overflow-clip h-screen relative -z-10 font-sans"
+  class="relative -z-10 h-screen overflow-clip bg-background-blue font-sans"
 >
   <button
-    class="w-full h-full absolute cursor-default"
+    class="absolute h-full w-full cursor-default"
     on:click={() => {
       focusedWindow = undefined;
       panelOpen = false;
     }}
   />
-  <section class="p-2 flex flex-col gap-5">
+  <section class="flex flex-col gap-5 p-2">
     {#each programs as programInfo}
       <DesktopIcon on:open={handleOpen} {...programInfo} />
     {/each}
@@ -95,12 +95,12 @@
   <StartPanel opened={panelOpen} />
 
   <footer
-    class="flex gap-1 z-50 text-sm fixed bottom-0 w-screen h-8 bg-menu border-t-2 border-menu-highlight p-0.5"
+    class="fixed bottom-0 z-50 flex h-8 w-screen gap-1 border-t-2 border-menu-highlight bg-menu p-0.5 text-sm"
   >
     <button
       class="{panelOpen
-        ? 'bg-menu-active border-menu-highlight border-t-menu-shadow border-l-menu-shadow'
-        : ''} active:bg-menu flex min-w-[70px] items-center gap-1 btn-strong p-1"
+        ? 'border-menu-highlight border-l-menu-shadow border-t-menu-shadow bg-menu-active'
+        : ''} btn-strong flex min-w-[70px] items-center gap-1 p-1 active:bg-menu"
       on:click={() => {
         handleUnfocus();
         panelOpen = !panelOpen;
@@ -109,10 +109,10 @@
       <img
         alt=""
         draggable="false"
-        class="[image-rendering:pixelated] select-none w-5"
+        class="w-5 select-none [image-rendering:pixelated]"
         src="/desktop_icons/logo.png"
       />
-      <p class="font-bold select-none">Start</p>
+      <p class="select-none font-bold">Start</p>
     </button>
 
     {#each openedWindows as window}

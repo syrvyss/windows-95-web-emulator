@@ -5,7 +5,7 @@
 </script>
 
 <div
-  class="{scrollStyling} h-full border-menu-shadow border-2 border-b-menu-active
+  class="{scrollStyling} h-full border-2 border-menu-shadow border-b-menu-active
   border-r-menu-active"
 >
   <slot />

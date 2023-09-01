@@ -5,72 +5,72 @@
 
 <slot name="contextMenu" />
 <div
-  class="flex justify-between outline outline-1 outline-title-bar-secondary border border-transparent border-t-menu-highlight"
+  class="flex justify-between border border-transparent border-t-menu-highlight outline outline-1 outline-title-bar-secondary"
 >
-  <div class="flex flex-col w-full">
+  <div class="flex w-full flex-col">
     <div
-      class="h-12 border border-transparent border-r-title-bar-secondary border-b-title-bar-secondary border-l-menu-highlight flex w-full pl-0.5"
+      class="flex h-12 w-full border border-transparent border-b-title-bar-secondary border-l-menu-highlight border-r-title-bar-secondary pl-0.5"
     >
       <Draggable />
       <div
-        class="flex-1 flex w-full border border-transparent border-r-menu-shadow"
+        class="flex w-full flex-1 border border-transparent border-r-menu-shadow"
       >
         <div
-          class="flex flex-col justify-around w-14 hover:btn border-2 border-transparent"
+          class="flex w-14 flex-col justify-around border-2 border-transparent hover:btn"
         >
           <img
-            class="[image-rendering:pixelated] w-6 drag-none mx-auto"
+            class="mx-auto w-6 drag-none [image-rendering:pixelated]"
             src="window_icons/back.png"
             alt=""
           />
-          <p class="text-xs text-center">Back</p>
+          <p class="text-center text-xs">Back</p>
         </div>
         <div
-          class="flex flex-col justify-around w-14 hover:btn border-2 border-transparent"
+          class="flex w-14 flex-col justify-around border-2 border-transparent hover:btn"
         >
           <img
-            class="[image-rendering:pixelated] w-6 drag-none mx-auto"
+            class="mx-auto w-6 drag-none [image-rendering:pixelated]"
             src="window_icons/forward.png"
             alt=""
           />
-          <p class="text-xs text-center">Forward</p>
+          <p class="text-center text-xs">Forward</p>
         </div>
         <div
-          class="flex flex-col justify-around w-14 hover:btn border-2 border-transparent"
+          class="flex w-14 flex-col justify-around border-2 border-transparent hover:btn"
         >
           <img
-            class="[image-rendering:pixelated] w-6 drag-none mx-auto"
+            class="mx-auto w-6 drag-none [image-rendering:pixelated]"
             src="window_icons/stop.png"
             alt=""
           />
-          <p class="text-xs text-center">Stop</p>
+          <p class="text-center text-xs">Stop</p>
         </div>
         <div
-          class="flex flex-col justify-around w-14 hover:btn border-2 border-transparent"
+          class="flex w-14 flex-col justify-around border-2 border-transparent hover:btn"
         >
           <img
-            class="[image-rendering:pixelated] w-6 drag-none mx-auto"
+            class="mx-auto w-6 drag-none [image-rendering:pixelated]"
             src="window_icons/refresh.png"
             alt=""
           />
-          <p class="text-xs text-center">Refresh</p>
+          <p class="text-center text-xs">Refresh</p>
         </div>
         <div
-          class="flex flex-col justify-around w-14 hover:btn border-2 border-transparent"
+          class="flex w-14 flex-col justify-around border-2 border-transparent hover:btn"
         >
           <img
-            class="[image-rendering:pixelated] w-6 drag-none mx-auto"
+            class="mx-auto w-6 drag-none [image-rendering:pixelated]"
             src="window_icons/home.png"
             alt=""
           />
-          <p class="text-xs text-center">Home</p>
+          <p class="text-center text-xs">Home</p>
         </div>
       </div>
       <div
-        class="ml-auto h-auto flex flex-col justify-between border border-transparent border-l-menu-highlight"
+        class="ml-auto flex h-auto flex-col justify-between border border-transparent border-l-menu-highlight"
       >
         <img
-          class="[image-rendering:pixelated] col drag-none bg-black p-1 h-full"
+          class="col h-full bg-black p-1 drag-none [image-rendering:pixelated]"
           src="desktop_icons/internet.png"
           alt=""
         />
@@ -78,23 +78,23 @@
     </div>
 
     <div
-      class="pl-0.5 flex border border-transparent border-t-menu-highlight border-l-menu-highlight border-b-menu-highlight"
+      class="flex border border-transparent border-b-menu-highlight border-l-menu-highlight border-t-menu-highlight pl-0.5"
     >
       <Draggable />
       <div
-        class="flex-1 flex h-6 w-full items-center gap-2 border border-transparent border-r-title-bar-secondary"
+        class="flex h-6 w-full flex-1 items-center gap-2 border border-transparent border-r-title-bar-secondary"
       >
-        <p class="text-xs ml-1">Address</p>
+        <p class="ml-1 text-xs">Address</p>
         <input
-          class="w-full outline-none h-[80%] mr-2 border-2 border-menu-highlight border-l-menu-shadow border-t-menu-shadow"
+          class="mr-2 h-[80%] w-full border-2 border-menu-highlight border-l-menu-shadow border-t-menu-shadow outline-none"
           type="text"
         />
       </div>
       <div
-        class="pl-0.5 flex justify-between w-[46px] border border-transparent border-l-menu-highlight"
+        class="flex w-[46px] justify-between border border-transparent border-l-menu-highlight pl-0.5"
       >
         <Draggable />
-        <p class="text-xs block my-auto">Links</p>
+        <p class="my-auto block text-xs">Links</p>
       </div>
     </div>
   </div>

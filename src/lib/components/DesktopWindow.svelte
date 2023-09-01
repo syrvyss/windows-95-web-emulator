@@ -64,7 +64,7 @@
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <div
   style="height:{size.y}px; width:{size.x}px;{minimizeStyling()}{maximizeStyling()}{focusStyling()}"
-  class="flex flex-col z-10 drag-none cursor-default bg-menu select-none panel h-[{size.y}px] w-[{size.x}px] p-0.5 absolute"
+  class="panel z-10 flex cursor-default select-none flex-col bg-menu drag-none h-[{size.y}px] w-[{size.x}px] absolute p-0.5"
   on:mousedown={() => {
     dispatch("focus", {
       id: id,
@@ -73,9 +73,9 @@
 >
   <!-- svelte-ignore a11y-interactive-supports-focus -->
   <div
-    class="flex p-0.5 justify-between relative {focused
+    class="relative flex justify-between p-0.5 {focused
       ? 'bg-title-bar-primary'
-      : 'bg-title-bar-secondary'} w-full h-5 cursor-default drag-none select-none"
+      : 'bg-title-bar-secondary'} h-5 w-full cursor-default select-none drag-none"
     role="button"
     use:dragMe
     on:dblclick={() => {
@@ -84,12 +84,12 @@
   >
     <div class="flex gap-1">
       <img src={icon} alt="" class="h-full drag-none" />
-      <p class="font-black text-xs text-white">
+      <p class="text-xs font-black text-white">
         {name} - {type[0].toUpperCase() + type.slice(1)}
       </p>
     </div>
     <div class="flex">
-      <div class="flex mr-0.5">
+      <div class="mr-0.5 flex">
         <button
           on:click={() => {
             minimized = true;
@@ -98,7 +98,7 @@
         >
           <img
             src="/window_icons/minimize.png"
-            class="bg-menu btn-strong w-4 drag-none"
+            class="btn-strong w-4 bg-menu drag-none"
             alt=""
           />
         </button>
@@ -109,7 +109,7 @@
         >
           <img
             src="/window_icons/maximize.png"
-            class="bg-menu btn-strong w-4 drag-none"
+            class="btn-strong w-4 bg-menu drag-none"
             alt=""
           />
         </button>
@@ -123,7 +123,7 @@
       >
         <img
           src="/window_icons/close.png"
-          class="bg-menu btn-strong w-4 drag-none"
+          class="btn-strong w-4 bg-menu drag-none"
           alt=""
         />
       </button>
