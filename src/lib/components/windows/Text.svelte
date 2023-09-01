@@ -8,7 +8,7 @@
 
 <Content>
   <textarea
-    class="overflow-scroll whitespace-nowrap w-full h-full resize-none block outline-none text-xs"
+    class="block h-full w-full resize-none overflow-scroll whitespace-nowrap text-xs outline-none"
     >{text}</textarea
   >
 </Content>

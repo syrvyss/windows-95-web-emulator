@@ -2,18 +2,18 @@
 </script>
 
 <article class="font-comic">
-  <section class="h-56 mb-9 flex flex-col [font-family:'comic sans']">
+  <section class="[font-family:'comic sans'] mb-9 flex h-56 flex-col">
     <div class="my-auto">
-      <h2 class="text-center text-blue-500 text-6xl">Nikolaj</h2>
-      <h2 class="text-center text-blue-500 text-6xl -mt-4">Lübker</h2>
+      <h2 class="text-center text-6xl text-blue-500">Nikolaj</h2>
+      <h2 class="-mt-4 text-center text-6xl text-blue-500">Lübker</h2>
       <div class="flex justify-center">
         <img
-          class="-mt-[5.5rem] h-20 -mr-[16.5rem] rotate-[75deg] drag-none [image-rendering:pixelated]"
+          class="-mr-[16.5rem] -mt-[5.5rem] h-20 rotate-[75deg] drag-none [image-rendering:pixelated]"
           src="misc/keyboard.png"
           alt=""
         />
       </div>
-      <h2 class="text-right -mr-96 pr-7">hello :-)</h2>
+      <h2 class="-mr-96 pr-7 text-right">hello :-)</h2>
       <p class="mt-7 text-center">
         (I apologize for the authentic 1990's web experience..)
       </p>
@@ -23,7 +23,7 @@
   <section
     class="grid grid-cols-2 grid-rows-5 gap-y-10 border-4 border-dotted border-transparent border-t-green-300 p-5"
   >
-    <h2 class="text-yellow-300 font-black text-xl text-center underline">
+    <h2 class="text-center text-xl font-black text-yellow-300 underline">
       About Myself
     </h2>
     <p class="text-center">
@@ -36,7 +36,7 @@
       >
     </p>
 
-    <h2 class="text-yellow-300 font-black text-xl text-center underline">
+    <h2 class="text-center text-xl font-black text-yellow-300 underline">
       Which technologies do I have experience in?
     </h2>
     <p class="text-center">
@@ -52,7 +52,7 @@
       systems, and more.
     </p>
 
-    <h2 class="text-yellow-300 font-black text-xl text-center underline">
+    <h2 class="text-center text-xl font-black text-yellow-300 underline">
       What are you interested in?
     </h2>
     <p class="text-center">
@@ -66,7 +66,7 @@
       </span>
     </p>
 
-    <h2 class="text-yellow-300 font-black text-xl text-center underline">
+    <h2 class="text-center text-xl font-black text-yellow-300 underline">
       What are your past projects?
     </h2>
     <p class="text-center">I don't have many public repositories, sorry!</p>
