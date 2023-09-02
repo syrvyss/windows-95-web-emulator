@@ -23,12 +23,11 @@
     size = { x: 800, y: 600 };
   }
 
+  if (name === "Project info") {
+    let text = programs.find((e) => e.name === "Project info")?.text;
+    projectRawText = text ?? "";
+  }
   onMount(() => {
-    if (name === "Project info") {
-      let text = programs.find((e) => e.name === "Project info")?.text;
-      projectRawText = text ?? "";
-    }
-
     const commitData = async (): Promise<string> => {
       if (name !== "Commit history") {
         return "";
@@ -47,11 +46,14 @@
         .then((e) => e.data)
         .catch(() => "Oops, my code sucks!");
 
-      let tempText = "__main__\n\n";
+      let tempText = "";
 
       fetched.forEach((e: any) => {
-        let string = `author: ${e.commit.author.name}\ndate: ${e.commit.author.date}\nmessage: ${e.commit.message}\n`;
-        tempText += string;
+        let author = e.commit.author.name;
+        let date = e.commit.author.date;
+        let message = e.commit.message.split("\n")[0];
+
+        tempText += `author: ${author}\ndate: ${date}\nmessage: ${message}\n\n`
       });
 
       return tempText;
