@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { onMount } from "svelte";
+
   import Internet from "$lib/components/windows/Internet.svelte";
   import Text from "./windows/Text.svelte";
   import ContextMenu from "./ContextMenu.svelte";
@@ -21,40 +23,42 @@
     size = { x: 800, y: 600 };
   }
 
-  $: if (name === "Project info") {
-    let text = programs.find((e) => e.name === "Project info")?.text;
-    projectRawText = text ?? "";
-  }
-
-  $: commitData = async (): Promise<string> => {
-    if (name !== "Commit history") {
-      return "halol";
+  onMount(() => {
+    if (name === "Project info") {
+      let text = programs.find((e) => e.name === "Project info")?.text;
+      projectRawText = text ?? "";
     }
 
-    const octokit = new Octokit();
+    const commitData = async (): Promise<string> => {
+      if (name !== "Commit history") {
+        return "";
+      }
 
-    let fetched = await octokit
-      .request("GET /repos/syrvyss/windows-95-web-emulator/commits", {
-        owner: "OWNER",
-        repo: "REPO",
-        headers: {
-          "X-GitHub-Api-Version": "2022-11-28",
-        },
-      })
-      .then((e) => e.data)
-      .catch(() => "Oops, my code sucks!");
+      const octokit = new Octokit();
 
-    let tempText = "__main__\n\n";
+      let fetched = await octokit
+        .request("GET /repos/syrvyss/windows-95-web-emulator/commits", {
+          owner: "OWNER",
+          repo: "REPO",
+          headers: {
+            "X-GitHub-Api-Version": "2022-11-28",
+          },
+        })
+        .then((e) => e.data)
+        .catch(() => "Oops, my code sucks!");
 
-    fetched.forEach((e: any) => {
-      let string = `author: ${e.commit.author.name}\ndate: ${e.commit.author.date}\nmessage: ${e.commit.message}\n`;
-      tempText += string;
-    });
+      let tempText = "__main__\n\n";
 
-    return tempText;
-  };
+      fetched.forEach((e: any) => {
+        let string = `author: ${e.commit.author.name}\ndate: ${e.commit.author.date}\nmessage: ${e.commit.message}\n`;
+        tempText += string;
+      });
 
-  $: commitData().then((e) => (commitRawText = e));
+      return tempText;
+    };
+
+    commitData().then((e) => (commitRawText = e));
+  });
 </script>
 
 {#if type === "text"}
