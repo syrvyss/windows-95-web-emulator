@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+  import { page } from '$app/stores';
 
   import Internet from "$lib/components/windows/Internet.svelte";
   import Text from "./windows/Text.svelte";
@@ -9,14 +9,12 @@
 
   import About from "./internet_sites/About.svelte";
 
-  import { Octokit } from "@octokit/core";
-
   export let type: string;
   export let name: string;
 
   export let size: { x: number; y: number };
 
-  let commitRawText = "";
+  let commitRawText = `${$page.data.commitHistory}`;
   let projectRawText = "";
 
   if (type === "internet") {
@@ -27,40 +25,6 @@
     let text = programs.find((e) => e.name === "Project info")?.text;
     projectRawText = text ?? "";
   }
-  onMount(() => {
-    const commitData = async (): Promise<string> => {
-      if (name !== "Commit history") {
-        return "";
-      }
-
-      const octokit = new Octokit();
-
-      let fetched = await octokit
-        .request("GET /repos/syrvyss/windows-95-web-emulator/commits", {
-          owner: "OWNER",
-          repo: "REPO",
-          headers: {
-            "X-GitHub-Api-Version": "2022-11-28",
-          },
-        })
-        .then((e) => e.data)
-        .catch(() => "Oops, my code sucks!");
-
-      let tempText = "";
-
-      fetched.forEach((e: any) => {
-        let author = e.commit.author.name;
-        let date = e.commit.author.date;
-        let message = e.commit.message.split("\n")[0];
-
-        tempText += `author: ${author}\ndate: ${date}\nmessage: ${message}\n\n`
-      });
-
-      return tempText;
-    };
-
-    commitData().then((e) => (commitRawText = e));
-  });
 </script>
 
 {#if type === "text"}
