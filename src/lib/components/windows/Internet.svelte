@@ -1,6 +1,11 @@
-<script>
+<script lang="ts">
   import Draggable from "../window_components/Draggable.svelte";
   import Content from "../Content.svelte";
+
+  let address = "http://nikolaj.site/";
+  let currentLink = "http://nikolaj.site/";
+
+  $: linkValid = currentLink === "http://nikolaj.site/";
 </script>
 
 <slot name="contextMenu" />
@@ -57,6 +62,10 @@
         </div>
         <div
           class="flex w-14 flex-col justify-around border-2 border-transparent hover:btn"
+          on:click={() => {
+            currentLink = "http://nikolaj.site/";
+            address = "http://nikolaj.site/";
+          }}
         >
           <img
             class="mx-auto w-6 drag-none [image-rendering:pixelated]"
@@ -85,10 +94,12 @@
         class="flex h-6 w-full flex-1 items-center gap-2 border border-transparent border-r-title-bar-secondary"
       >
         <p class="ml-1 text-xs">Address</p>
-        <input
-          class="mr-2 h-[80%] w-full border-2 border-menu-highlight border-l-menu-shadow border-t-menu-shadow outline-none"
-          type="text"
-        />
+        <form
+          class="mr-2 h-[80%] w-full border-2 border-menu-highlight border-l-menu-shadow border-t-menu-shadow text-xs"
+          on:submit|preventDefault={() => (currentLink = address)}
+        >
+          <input class="w-full outline-none" type="text" bind:value={address} />
+        </form>
       </div>
       <div
         class="flex w-[46px] justify-between border border-transparent border-l-menu-highlight pl-0.5"
@@ -100,5 +111,11 @@
   </div>
 </div>
 <Content scroll={true}>
-  <slot name="content" />
+  {#if linkValid === true}
+    <slot name="content" />
+  {:else}
+    <div>
+      <h2 class="text-center">Sorry, this site doesn't exist!</h2>
+    </div>
+  {/if}
 </Content>
