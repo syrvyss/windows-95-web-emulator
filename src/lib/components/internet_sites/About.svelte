@@ -1,31 +1,40 @@
-<script>
-</script>
+<article
+  class="[font-family:'comic sans'] flex min-h-screen flex-col bg-white bg-[length:200px_200px] font-comic"
+>
+  <nav class="flex w-full gap-9 p-5 text-blue-500 underline">
+    <a class="visited:text-blue-800" href="#myself">Myself</a>
+    <a class="visited:text-blue-800" href="#experience">Experience</a>
+    <a class="visited:text-blue-800" href="#interests">Interests</a>
+    <a class="visited:text-blue-800" href="#projects">Past projects</a>
+  </nav>
 
-<article class="font-comic">
-  <section class="[font-family:'comic sans'] mb-9 flex h-56 flex-col">
-    <div class="my-auto">
-      <h2 class="text-center text-6xl text-blue-500">Nikolaj</h2>
-      <h2 class="-mt-4 text-center text-6xl text-blue-500">Lübker</h2>
-      <div class="flex justify-center">
-        <img
-          class="-mr-[16.5rem] -mt-[5.5rem] h-20 rotate-[75deg] drag-none [image-rendering:pixelated]"
-          src="misc/keyboard.png"
-          alt=""
-        />
-      </div>
-      <h2 class="-mr-96 pr-7 text-right">hello :-)</h2>
-      <p class="mt-7 text-center">
-        (I apologize for the authentic 1990's web experience..)
-      </p>
+  <section class="mt-20 flex h-80 flex-col px-5">
+    <h2 class="text-center text-5xl">Nikolaj</h2>
+    <h2 class="-mt-3 text-center text-5xl">Lübker</h2>
+
+    <div class="mx-auto flex flex-col items-center">
+      <p>V</p>
+      <p class="-mt-3">V</p>
+    </div>
+    <div class="flex justify-center">
+      <img
+        class="-mr-[14.1rem] -mt-[7.7rem] h-20 rotate-[75deg] drag-none [image-rendering:pixelated]"
+        src="web_icons/keyboard.png"
+        alt=""
+      />
+    </div>
+    <h2 class="-mr-96 pr-7 text-right">hello :-)</h2>
+
+    <div class="w-50 mx-auto">
+      <img src="web_icons/dancing.png" alt="" />
     </div>
   </section>
 
-  <section
-    class="grid grid-cols-2 grid-rows-5 gap-y-10 border-4 border-dotted border-transparent border-t-green-300 p-5"
-  >
+  <section id="myself" class="flex h-80 flex-col">
     <h2 class="text-center text-xl font-black text-yellow-300 underline">
       About Myself
     </h2>
+
     <p class="text-center">
       I am a {new Date().getFullYear() - 2003} year old Software Student at LEGO
       Education, mostly working within a full-stack environment. I spend a lot of
@@ -35,7 +44,9 @@
         >(this is also why I've taken the decision to GPL this project).</span
       >
     </p>
+  </section>
 
+  <section id="experience" class="flex h-80 flex-col px-5">
     <h2 class="text-center text-xl font-black text-yellow-300 underline">
       Which technologies do I have experience in?
     </h2>
@@ -51,7 +62,9 @@
       <span class="text-xs"> (and lexers & parsers)</span>, UNIX operating
       systems, and more.
     </p>
+  </section>
 
+  <section id="interests" class="flex h-80 flex-col px-5">
     <h2 class="text-center text-xl font-black text-yellow-300 underline">
       What are you interested in?
     </h2>
@@ -65,7 +78,8 @@
         (non-fiction, fantasy, mostly.)
       </span>
     </p>
-
+  </section>
+  <section id="projects" class="flex h-80 flex-col px-5">
     <h2 class="text-center text-xl font-black text-yellow-300 underline">
       What are your past projects?
     </h2>
