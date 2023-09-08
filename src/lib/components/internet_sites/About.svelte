@@ -24,6 +24,10 @@
       />
     </div>
     <h2 class="-mr-96 pr-7 text-right">hello :-)</h2>
+
+    <div class="w-50 mx-auto">
+      <img src="web_icons/dancing.png" alt="" />
+    </div>
   </section>
 
   <section id="myself" class="flex h-80 flex-col">
